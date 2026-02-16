@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --brand-black: #000000;
+  --brand-white: #ffffff;
+  --brand-red: #e50914;
+  --brand-gray-50: #fafafa;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--brand-gray-50);
+  color: var(--brand-black);
+}
+
+::selection {
+  background: var(--brand-red);
+  color: var(--brand-white);
+}
