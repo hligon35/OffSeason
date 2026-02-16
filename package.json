@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "pages:build": "next build && next-on-pages",
+    "pages:dev": "wrangler pages dev .vercel/output/static --compatibility-date=2026-02-15",
     "start": "next start",
     "lint": "next lint"
   },
@@ -18,11 +20,13 @@
     "@types/node": "22.13.4",
     "@types/react": "19.0.8",
     "@types/react-dom": "19.0.3",
+    "@cloudflare/next-on-pages": "1.13.12",
     "autoprefixer": "10.4.20",
     "eslint": "9.20.1",
     "eslint-config-next": "15.1.6",
     "postcss": "8.5.3",
     "tailwindcss": "3.4.17",
-    "typescript": "5.7.3"
+    "typescript": "5.7.3",
+    "wrangler": "3.109.2"
   }
 }
