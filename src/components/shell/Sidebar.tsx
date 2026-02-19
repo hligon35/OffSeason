@@ -57,23 +57,6 @@ export function Sidebar() {
           </Link>
         </div>
       </ModuleShell>
-
-      <ModuleShell title="Newsletter Signup">
-        <p className="text-sm text-brand-gray-700">One email. Pure highlights. Zero spam.</p>
-        <form className="mt-3 flex gap-2">
-          <input
-            type="email"
-            placeholder="you@domain.com"
-            className="w-full rounded border border-brand-gray-200 px-3 py-2 text-sm outline-none focus:border-brand-red"
-          />
-          <button
-            type="button"
-            className="rounded bg-brand-red px-3 py-2 text-xs font-[800] uppercase tracking-wide text-brand-white hover:bg-brand-black"
-          >
-            Join
-          </button>
-        </form>
-      </ModuleShell>
     </div>
   )
 }

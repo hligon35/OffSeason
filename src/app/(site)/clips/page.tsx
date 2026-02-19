@@ -1,10 +1,6 @@
-import { Feed } from '@/components/feed/Feed'
+import { redirect } from 'next/navigation'
 
 export default function ClipsPage() {
-  return (
-    <div>
-      <h1 className="mb-4 text-2xl font-[800] tracking-tightish">Clips</h1>
-      <Feed scope="clips" />
-    </div>
-  )
+  redirect('/the-show#clips')
+  return null
 }

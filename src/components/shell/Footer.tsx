@@ -5,28 +5,24 @@ export function Footer() {
   return (
     <footer className="mt-10 w-full bg-brand-black text-brand-white">
       <div className="mx-auto w-full max-w-screen-2xl px-3 py-10 sm:px-4 lg:px-6">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr,420px]">
-          <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
-            {footerColumns.map((col) => (
-              <div key={col.title}>
-                <div className="text-xs font-[800] uppercase tracking-wide text-brand-white/90">{col.title}</div>
-                <ul className="mt-3 space-y-2">
-                  {col.links.map((l) => (
-                    <li key={l.href + l.label}>
-                      <Link href={l.href} className="text-sm text-brand-white/75 hover:text-brand-white hover:underline">
-                        {l.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-[minmax(0,1fr),minmax(260px,360px)] lg:grid-cols-[minmax(0,1fr),420px]">
+          <div className="min-w-0">
+            <div className="text-xs font-[800] uppercase tracking-wide text-brand-white/90">The Off Season</div>
+            <ul className="mt-3 space-y-2">
+              {footerColumns.flatMap((c) => c.links).map((l) => (
+                <li key={l.href + l.label}>
+                  <Link href={l.href} className="text-sm text-brand-white/75 hover:text-brand-white hover:underline">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div className="rounded border border-brand-gray-800 bg-brand-black p-5">
+          <div className="min-w-0 rounded border border-brand-gray-800 bg-brand-black p-5">
             <div className="text-xs font-[800] uppercase tracking-wide text-brand-white/90">Newsletter</div>
             <div className="mt-2 text-sm text-brand-white/75">Get the loudest segments and cleanest clips, first.</div>
-            <form className="mt-4 flex gap-2">
+            <form className="mt-4 flex flex-col gap-2 sm:flex-row sm:items-center">
               <input
                 type="email"
                 placeholder="you@domain.com"
@@ -34,7 +30,7 @@ export function Footer() {
               />
               <button
                 type="button"
-                className="rounded bg-brand-red px-3 py-2 text-xs font-[800] uppercase tracking-wide text-brand-white hover:bg-brand-white hover:text-brand-black"
+                className="shrink-0 rounded bg-brand-red px-3 py-2 text-xs font-[800] uppercase tracking-wide text-brand-white hover:bg-brand-white hover:text-brand-black"
               >
                 Sign Up
               </button>

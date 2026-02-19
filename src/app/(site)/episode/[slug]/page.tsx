@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { getMockEpisode, slugify } from '@/lib/mock/content'
 import { PlayIcon } from '@/components/ui/Icons'
-import { Feed } from '@/components/feed/Feed'
+import { FilteredFeed } from '@/components/brand/FilteredFeed'
 
 export default async function EpisodePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
@@ -12,7 +12,7 @@ export default async function EpisodePage({ params }: { params: Promise<{ slug: 
       <div className="rounded border border-brand-gray-200 bg-brand-white p-5">
         <div className="flex flex-wrap items-center gap-2">
           <Link
-            href={`/topics/${slugify(episode.category)}`}
+            href="/the-show"
             className="inline-flex rounded px-2 py-1 text-[11px] font-[800] uppercase tracking-wide text-brand-red hover:bg-brand-gray-50"
           >
             {episode.category}
@@ -52,8 +52,8 @@ export default async function EpisodePage({ params }: { params: Promise<{ slug: 
       </div>
 
       <div className="mt-6">
-        <h2 className="mb-3 text-lg font-[800] tracking-tightish">More from the feed</h2>
-        <Feed scope={`topic:${slug}`} />
+        <h2 className="mb-3 text-lg font-[800] tracking-tightish">More episodes</h2>
+        <FilteredFeed scope="episodes" allowedKinds={['featured', 'video']} pageSize={8} />
       </div>
     </div>
   )

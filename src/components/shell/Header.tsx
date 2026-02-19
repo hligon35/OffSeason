@@ -5,10 +5,9 @@ import * as React from 'react'
 import { SearchIcon, UserIcon } from '@/components/ui/Icons'
 
 const primaryNav = [
-  { label: 'Episodes', href: '/episodes' },
-  { label: 'Clips', href: '/clips' },
-  { label: 'Personalities', href: '/personalities' },
-  { label: 'Topics', href: '/topics/hot-takes' },
+  { label: 'Home', href: '/' },
+  { label: 'The Show', href: '/the-show' },
+  { label: 'The Podcast', href: '/podcast' },
   { label: 'Store', href: '/store' },
 ] as const
 
@@ -59,7 +58,7 @@ export function Header() {
           </button>
 
           <Link
-            href="/"
+            href="/sign-in"
             className="inline-flex items-center gap-2 rounded border border-brand-gray-800 px-3 py-2 text-xs font-[800] uppercase tracking-wide hover:border-brand-red"
           >
             <UserIcon className="h-4 w-4" />
