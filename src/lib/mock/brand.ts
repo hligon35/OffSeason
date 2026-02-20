@@ -1,6 +1,6 @@
 export const brandCopy = {
   name: 'The Off Season',
-  tagline: 'Bold sports + culture. All personality. All season.',
+  tagline: 'Beyond The Pylons',
   about:
     'The Off Season is a media company built around shows, podcasts, and personality-driven storytelling. We cover sports and culture like a group chat: fast, loud, and opinionated — with just enough structure to keep it clean.',
 } as const
@@ -47,5 +47,5 @@ export const podcastHosts = [
 export const podcastSubscribeLinks = [
   { label: 'Apple Podcasts', href: '/' },
   { label: 'Spotify', href: '/' },
-  { label: 'YouTube', href: '/' },
+  { label: 'YouTube', href: 'https://www.youtube.com/@OffSeasonLive' },
 ] as const

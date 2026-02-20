@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import * as React from 'react'
 import { SearchIcon, UserIcon } from '@/components/ui/Icons'
 
@@ -30,9 +31,14 @@ export function Header() {
     >
       <div className="mx-auto flex h-14 w-full max-w-screen-2xl items-center gap-3 px-3 sm:px-4 lg:px-6">
         <Link href="/" className="flex items-center gap-2 font-[800] tracking-tightish">
-          <span className="inline-flex h-7 w-7 items-center justify-center rounded bg-brand-red text-sm font-[800]">
-            OS
-          </span>
+          <Image
+            src="/offseasonlogo.png"
+            alt="The Off Season"
+            width={28}
+            height={28}
+            className="h-7 w-7 rounded"
+            priority
+          />
           <span className="text-sm sm:text-base">THE OFF SEASON</span>
         </Link>
 

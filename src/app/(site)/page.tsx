@@ -30,6 +30,8 @@ export default function HomePage() {
             <Link
               key={s.label}
               href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded border border-brand-white/15 px-3 py-2 text-xs font-[800] uppercase tracking-wide text-brand-white/85 hover:border-brand-red hover:text-brand-white"
             >
               {s.label}

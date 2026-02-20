@@ -1,5 +1,6 @@
 import { CTAButton } from '@/components/ui/CTAButton'
 import { podcastCopy } from '@/lib/mock/brand'
+import Image from 'next/image'
 
 export function PodcastHero() {
   return (
@@ -20,12 +21,14 @@ export function PodcastHero() {
 
           <div className="w-full max-w-xl">
             <div className="relative aspect-[16/9] w-full overflow-hidden rounded bg-brand-black">
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-black via-brand-gray-900 to-brand-black" />
-              <div className="absolute inset-0 flex items-end">
-                <div className="m-4 inline-flex rounded bg-brand-red px-2 py-1 text-[11px] font-[800] uppercase tracking-wide text-brand-white">
-                  Podcast
-                </div>
-              </div>
+              <Image
+                src="/The Podcast.png"
+                alt="The Off Season Podcast"
+                fill
+                sizes="(min-width: 1024px) 560px, 100vw"
+                className="object-contain"
+                priority
+              />
             </div>
           </div>
         </div>

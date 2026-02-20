@@ -4,6 +4,10 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'The Off Season',
   description: 'Bold sports + culture. All personality. All season.',
+  icons: {
+    icon: [{ url: '/favicon-32x32.png', type: 'image/png', sizes: '32x32' }],
+    apple: [{ url: '/apple-touch-icon.png', type: 'image/png', sizes: '180x180' }],
+  },
 }
 
 export default function RootLayout({
