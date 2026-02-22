@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <title>Video Store — The Off Season</title>
+    <link rel="icon" href="../favicon.svg" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skipLink" href="#main">Skip to content</a>
+
+    <header class="topNav" id="top">
+      <div class="container topNav__inner">
+        <div class="brand">
+          <img class="brand__logo" src="../offseasonlogo.png" alt="The Off Season" width="140" height="32" />
+        </div>
+
+        <nav class="nav" aria-label="Primary">
+          <a class="nav__link" href="#top">Home</a>
+          <a class="nav__link" href="#episodes">Episodes</a>
+          <a class="nav__link" href="#trailer">Trailer</a>
+          <a class="nav__link" href="#about">About</a>
+          <a class="nav__link" href="#support">Support</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="main" tabindex="-1">
+      <div class="container">
+        <section id="trailer" class="hero" aria-label="Show hero">
+          <div class="hero__bg" aria-hidden="true"></div>
+
+          <div class="hero__content">
+            <div class="hero__kicker">Video Store</div>
+            <h1 class="hero__title" id="showTitle">Loading…</h1>
+            <p class="hero__tagline" id="showTagline"></p>
+
+            <div class="hero__ctaRow" role="group" aria-label="Primary actions">
+              <div id="heroTrailerCta"></div>
+              <div id="heroBuySeasonCta"></div>
+            </div>
+
+            <div class="hero__meta" id="heroMeta"></div>
+          </div>
+        </section>
+
+        <div id="pricingMount"></div>
+
+        <section class="episodes" id="episodes" aria-label="Episodes">
+          <div class="sectionHeader">
+            <h2 class="sectionHeader__title">Season One Episodes</h2>
+            <p class="sectionHeader__subtitle">Choose an episode to preview or purchase.</p>
+          </div>
+
+          <div class="episodeGrid" id="episodeGrid" role="list"></div>
+        </section>
+
+        <section class="info" id="about" aria-label="About">
+          <h2 class="info__title">About</h2>
+          <p class="info__text">
+            This is a template storefront page built for Vimeo OTT integration. Replace the placeholder embed URLs and
+            purchase links in <code>data/storeData.json</code>.
+          </p>
+        </section>
+
+        <section class="info" id="support" aria-label="Support">
+          <h2 class="info__title">Support</h2>
+          <p class="info__text">
+            Need help? Replace this copy with your support email/FAQ link.
+          </p>
+        </section>
+
+        <footer class="footer" aria-label="Footer">
+          <div class="footer__inner">
+            <div>© <span id="year"></span> The Off Season</div>
+            <div class="footer__links">
+              <a href="#top">Back to top</a>
+            </div>
+          </div>
+        </footer>
+      </div>
+
+      <!-- Accessible player dialog used for Trailer and Episode previews -->
+      <dialog class="playerDialog" id="playerDialog" aria-label="Video player">
+        <form method="dialog" class="playerDialog__header">
+          <div class="playerDialog__title" id="playerDialogTitle">Player</div>
+          <button class="playerDialog__close" value="close" aria-label="Close player">✕</button>
+        </form>
+
+        <div class="playerDialog__body">
+          <!--
+            Replace placeholder Vimeo OTT embed codes:
+            - Update the `vimeoOttEmbedUrl` fields in data/storeData.json.
+            - Vimeo OTT embed URLs typically look like https://player.vimeo.com/video/{id}?...
+            - If you use a different OTT embed URL format, keep it as a fully-qualified https URL.
+          -->
+          <div class="playerFrame" role="document">
+            <iframe
+              id="playerFrame"
+              class="playerFrame__iframe"
+              title="Video player"
+              src=""
+              allow="autoplay; fullscreen; picture-in-picture"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </dialog>
+    </main>
+
+    <script type="module" src="./store.js"></script>
+  </body>
+</html>

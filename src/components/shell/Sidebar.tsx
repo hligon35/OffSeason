@@ -19,7 +19,11 @@ export function Sidebar() {
           {['The Preseason Panic Draft', 'Camp Wars: Day 3', 'Hot Takes That Aged Too Well', 'Fan Calls Go Nuclear'].map(
             (t) => (
               <li key={t}>
-                <Link href={`/episode/${t.toLowerCase().replace(/\s+/g, '-')}`} className="block text-sm font-[700] hover:text-brand-red">
+                <Link
+                  href={`/episode/${t.toLowerCase().replace(/\s+/g, '-')}`}
+                  prefetch={false}
+                  className="block text-sm font-[700] hover:text-brand-red"
+                >
                   {t}
                 </Link>
                 <div className="text-xs text-brand-gray-600">2h ago · Off Season TV</div>
@@ -35,7 +39,11 @@ export function Sidebar() {
             <li key={t} className="flex items-start gap-3">
               <div className="h-12 w-20 flex-none rounded bg-brand-gray-100" />
               <div>
-                <Link href={`/episode/${t.toLowerCase().replace(/\s+/g, '-')}`} className="block text-sm font-[700] hover:text-brand-red">
+                <Link
+                  href={`/episode/${t.toLowerCase().replace(/\s+/g, '-')}`}
+                  prefetch={false}
+                  className="block text-sm font-[700] hover:text-brand-red"
+                >
                   {t}
                 </Link>
                 <div className="text-xs text-brand-gray-600">Clip · 0:42</div>

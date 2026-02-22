@@ -1,0 +1,102 @@
+{
+  "show": {
+    "title": "The Off Season",
+    "tagline": "Season One — All access. No excuses.",
+    "heroBackgroundImage": "../The Podcast.png",
+    "trailer": {
+      "label": "Official Trailer",
+      "vimeoOttEmbedUrl": "https://player.vimeo.com/video/000000000?h=PLACEHOLDER"
+    }
+  },
+  "pricing": {
+    "season": {
+      "purchasePrice": 19.99,
+      "rentalPrice": 9.99,
+      "currency": "USD",
+      "purchaseUrl": "https://example.com/purchase/season-1",
+      "rentalUrl": "https://example.com/rent/season-1"
+    },
+    "episode": {
+      "purchasePrice": 2.99,
+      "rentalPrice": 1.99,
+      "currency": "USD"
+    }
+  },
+  "episodes": [
+    {
+      "id": "s1e1",
+      "season": 1,
+      "episodeNumber": 1,
+      "title": "Welcome to the Off Season",
+      "runtime": "28m",
+      "thumbnail": "../offseasonlogo.png",
+      "description": "The crew sets the tone for Season One and dives into what fans can expect all year.",
+      "preview": {
+        "label": "Preview",
+        "vimeoOttEmbedUrl": "https://player.vimeo.com/video/000000001?h=PLACEHOLDER"
+      },
+      "purchaseUrl": "https://example.com/purchase/s1e1",
+      "rentalUrl": "https://example.com/rent/s1e1"
+    },
+    {
+      "id": "s1e2",
+      "season": 1,
+      "episodeNumber": 2,
+      "title": "The Grind",
+      "runtime": "31m",
+      "thumbnail": "../offseasonlogo.png",
+      "description": "Behind the scenes: the work nobody posts. Training, planning, and pressure.",
+      "preview": {
+        "label": "Preview",
+        "vimeoOttEmbedUrl": "https://player.vimeo.com/video/000000002?h=PLACEHOLDER"
+      },
+      "purchaseUrl": "https://example.com/purchase/s1e2",
+      "rentalUrl": "https://example.com/rent/s1e2"
+    },
+    {
+      "id": "s1e3",
+      "season": 1,
+      "episodeNumber": 3,
+      "title": "Momentum",
+      "runtime": "26m",
+      "thumbnail": "../offseasonlogo.png",
+      "description": "Momentum is earned. Learn how the team builds consistency and confidence.",
+      "preview": {
+        "label": "Preview",
+        "vimeoOttEmbedUrl": "https://player.vimeo.com/video/000000003?h=PLACEHOLDER"
+      },
+      "purchaseUrl": "https://example.com/purchase/s1e3",
+      "rentalUrl": "https://example.com/rent/s1e3"
+    },
+    {
+      "id": "s1e4",
+      "season": 1,
+      "episodeNumber": 4,
+      "title": "The Film Room",
+      "runtime": "33m",
+      "thumbnail": "../offseasonlogo.png",
+      "description": "Breakdowns, adjustments, and the tiny details that change outcomes.",
+      "preview": {
+        "label": "Preview",
+        "vimeoOttEmbedUrl": "https://player.vimeo.com/video/000000004?h=PLACEHOLDER"
+      },
+      "purchaseUrl": "https://example.com/purchase/s1e4",
+      "rentalUrl": "https://example.com/rent/s1e4"
+    },
+    {
+      "id": "s1e5",
+      "season": 1,
+      "episodeNumber": 5,
+      "title": "Final Whistle",
+      "runtime": "29m",
+      "thumbnail": "../offseasonlogo.png",
+      "description": "A season-ending look back: what changed, what didn’t, and what’s next.",
+      "preview": {
+        "label": "Preview",
+        "vimeoOttEmbedUrl": "https://player.vimeo.com/video/000000005?h=PLACEHOLDER"
+      },
+      "purchaseUrl": "https://example.com/purchase/s1e5",
+      "rentalUrl": "https://example.com/rent/s1e5"
+    }
+  ]
+}
