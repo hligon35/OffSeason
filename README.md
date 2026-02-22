@@ -1,4 +1,4 @@
-# The Off Season
+# Off Season
 
 Sports + culture media brand scaffold (Next.js App Router + TypeScript + Tailwind).
 

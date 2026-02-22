@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'The Off Season',
+  title: 'Off Season',
   description: 'Bold sports + culture. All personality. All season.',
   icons: {
     icon: [{ url: '/favicon-32x32.png', type: 'image/png', sizes: '32x32' }],

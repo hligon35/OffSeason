@@ -23,7 +23,7 @@ export function PodcastHero() {
             <div className="relative aspect-[16/9] w-full overflow-hidden rounded bg-brand-black">
               <Image
                 src="/The Podcast.png"
-                alt="The Off Season Podcast"
+                alt="Off Season Podcast"
                 fill
                 sizes="(min-width: 1024px) 560px, 100vw"
                 className="object-contain"

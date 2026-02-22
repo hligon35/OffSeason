@@ -1,6 +1,6 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { getMockFeedPage } from '@/lib/mock/content'
-import { BrandHero } from '@/components/brand/BrandHero'
 import { AboutSection } from '@/components/brand/AboutSection'
 import { EpisodeList } from '@/components/brand/EpisodeList'
 import { CTAButton } from '@/components/ui/CTAButton'
@@ -12,7 +12,18 @@ export default function HomePage() {
 
   return (
     <div className="space-y-6">
-      <BrandHero />
+      <section className="overflow-hidden rounded border border-brand-gray-200 bg-brand-black">
+        <div className="relative aspect-[16/9] w-full">
+          <Image
+            src="/offseasonlogo.png"
+            alt="Off Season"
+            fill
+            sizes="(min-width: 1024px) 1280px, 100vw"
+            className="object-contain p-10 sm:p-16"
+            priority
+          />
+        </div>
+      </section>
 
       <AboutSection title="A brand-first media company" body={brandCopy.about} />
 

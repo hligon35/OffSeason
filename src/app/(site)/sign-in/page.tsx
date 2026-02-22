@@ -6,7 +6,7 @@ export default function SignInPage() {
       <div className="overflow-hidden rounded border border-brand-gray-200 bg-brand-white">
         <div className="border-b border-brand-gray-200 bg-brand-black px-5 py-5 text-brand-white">
           <div className="text-xs font-[800] uppercase tracking-wide text-brand-white/80">Account</div>
-          <h1 className="mt-1 text-2xl font-[800] tracking-tightish">Sign in to The Off Season</h1>
+          <h1 className="mt-1 text-2xl font-[800] tracking-tightish">Sign in to Off Season</h1>
           <p className="mt-2 text-sm text-brand-white/75">Placeholder auth UI — connect real auth later.</p>
         </div>
 

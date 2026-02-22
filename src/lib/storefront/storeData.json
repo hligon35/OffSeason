@@ -1,6 +1,6 @@
 {
   "show": {
-    "title": "The Off Season",
+    "title": "Off Season",
     "tagline": "Season One — All access. No excuses.",
     "heroBackgroundImage": "/The Podcast.png",
     "trailer": {
@@ -27,10 +27,10 @@
       "id": "s1e1",
       "season": 1,
       "episodeNumber": 1,
-      "title": "Welcome to the Off Season",
+      "title": "David Njoku",
       "runtime": "28m",
       "thumbnail": "/offseasonlogo.png",
-      "description": "The crew sets the tone for Season One and dives into what fans can expect all year.",
+      "description": "David Njoku lives with urgency and joy, balancing charity, Miami retreats, and scars from a fire accident. His mantra \"No Tomorrow\" reflects a life of resilience, purpose, and relentless drive.",
       "preview": {
         "label": "Preview",
         "vimeoOttEmbedUrl": "https://player.vimeo.com/video/000000001?h=PLACEHOLDER"
@@ -42,10 +42,10 @@
       "id": "s1e2",
       "season": 1,
       "episodeNumber": 2,
-      "title": "The Grind",
+      "title": "Penei Sewell",
       "runtime": "31m",
       "thumbnail": "/offseasonlogo.png",
-      "description": "Behind the scenes: the work nobody posts. Training, planning, and pressure.",
+      "description": "Away from game day, Penei Sewell stays focused. Training continues, but fatherhood comes first. Between the weight room and time at home, his offseason is shaped by family, responsibility, and building a legacy that lasts beyond the field.",
       "preview": {
         "label": "Preview",
         "vimeoOttEmbedUrl": "https://player.vimeo.com/video/000000002?h=PLACEHOLDER"
@@ -57,10 +57,10 @@
       "id": "s1e3",
       "season": 1,
       "episodeNumber": 3,
-      "title": "Momentum",
+      "title": "Trey Hendrickson",
       "runtime": "26m",
       "thumbnail": "/offseasonlogo.png",
-      "description": "Momentum is earned. Learn how the team builds consistency and confidence.",
+      "description": "After his best season, Trey Hendrickson faces contract uncertainty. Through punishing drills, family, and raw honesty, \"The Edge\" shows a relentless man fueled by purpose, not approval.",
       "preview": {
         "label": "Preview",
         "vimeoOttEmbedUrl": "https://player.vimeo.com/video/000000003?h=PLACEHOLDER"
@@ -72,10 +72,10 @@
       "id": "s1e4",
       "season": 1,
       "episodeNumber": 4,
-      "title": "The Film Room",
+      "title": "George Kittle",
       "runtime": "33m",
       "thumbnail": "/offseasonlogo.png",
-      "description": "Breakdowns, adjustments, and the tiny details that change outcomes.",
+      "description": "Follow NFL star George Kittle through an offseason driven by obsession, discipline, and joy. From brutal training to quiet moments at home, this is the unseen work behind Sundays.",
       "preview": {
         "label": "Preview",
         "vimeoOttEmbedUrl": "https://player.vimeo.com/video/000000004?h=PLACEHOLDER"
@@ -87,10 +87,10 @@
       "id": "s1e5",
       "season": 1,
       "episodeNumber": 5,
-      "title": "Final Whistle",
+      "title": "Ricky Pearsall",
       "runtime": "29m",
       "thumbnail": "/offseasonlogo.png",
-      "description": "A season-ending look back: what changed, what didn’t, and what’s next.",
+      "description": "Ricky Pearsall rebuilds after a near-fatal shooting. From training to family talks, his comeback is driven by grit and faith-proving that this 49ers wide receiver was always meant to be here.",
       "preview": {
         "label": "Preview",
         "vimeoOttEmbedUrl": "https://player.vimeo.com/video/000000005?h=PLACEHOLDER"

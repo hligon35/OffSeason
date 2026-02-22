@@ -33,13 +33,13 @@ export function Header() {
         <Link href="/" className="flex items-center gap-2 font-[800] tracking-tightish">
           <Image
             src="/offseasonlogo.png"
-            alt="The Off Season"
+            alt="Off Season"
             width={28}
             height={28}
             className="h-7 w-7 rounded"
             priority
           />
-          <span className="text-sm sm:text-base">THE OFF SEASON</span>
+          <span className="text-sm sm:text-base">OFF SEASON</span>
         </Link>
 
         <nav className="hidden flex-1 items-center gap-5 pl-4 lg:flex">

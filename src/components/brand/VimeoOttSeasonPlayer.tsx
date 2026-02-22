@@ -11,7 +11,7 @@ export function VimeoOttSeasonPlayer({
   embedSrc,
   title = 'Season One Player',
   logoSrc = '/offseasonlogo.png',
-  logoAlt = 'The Off Season',
+  logoAlt = 'Off Season',
 }: VimeoOttSeasonPlayerProps) {
   const hasEmbed = typeof embedSrc === 'string' && embedSrc.trim().length > 0
 

@@ -1,6 +1,6 @@
 export const footerColumns: Array<{ title: string; links: Array<{ label: string; href: string }> }> = [
   {
-    title: 'The Off Season',
+    title: 'Off Season',
     links: [
       { label: 'Home', href: '/' },
       { label: 'The Show', href: '/the-show' },

@@ -1,6 +1,6 @@
 {
   "show": {
-    "title": "The Off Season",
+    "title": "Off Season",
     "tagline": "Season One — All access. No excuses.",
     "heroBackgroundImage": "../The Podcast.png",
     "trailer": {
@@ -27,7 +27,7 @@
       "id": "s1e1",
       "season": 1,
       "episodeNumber": 1,
-      "title": "Welcome to the Off Season",
+      "title": "Welcome to Off Season",
       "runtime": "28m",
       "thumbnail": "../offseasonlogo.png",
       "description": "The crew sets the tone for Season One and dives into what fans can expect all year.",

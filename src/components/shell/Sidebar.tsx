@@ -56,7 +56,7 @@ export function Sidebar() {
       <ModuleShell title="Merch Promo">
         <div className="rounded border border-brand-gray-200 bg-brand-gray-50 p-3">
           <div className="text-sm font-[800] uppercase tracking-wide">New Drop</div>
-          <div className="mt-1 text-sm text-brand-gray-700">The Off Season essentials. Loud logos. Clean fits.</div>
+          <div className="mt-1 text-sm text-brand-gray-700">Off Season essentials. Loud logos. Clean fits.</div>
           <Link
             href="/store"
             className="mt-3 inline-flex rounded bg-brand-black px-3 py-2 text-xs font-[800] uppercase tracking-wide text-brand-white hover:bg-brand-gray-900"

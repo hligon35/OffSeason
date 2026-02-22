@@ -7,7 +7,7 @@ export function Footer() {
       <div className="mx-auto w-full max-w-screen-2xl px-3 py-10 sm:px-4 lg:px-6">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-[minmax(0,1fr),minmax(260px,360px)] lg:grid-cols-[minmax(0,1fr),420px]">
           <div className="min-w-0">
-            <div className="text-xs font-[800] uppercase tracking-wide text-brand-white/90">The Off Season</div>
+            <div className="text-xs font-[800] uppercase tracking-wide text-brand-white/90">Off Season</div>
             <ul className="mt-3 space-y-2">
               {footerColumns.flatMap((c) => c.links).map((l) => (
                 <li key={l.href + l.label}>
@@ -52,7 +52,7 @@ export function Footer() {
         </div>
 
         <div className="mt-10 border-t border-brand-gray-800 pt-6 text-xs text-brand-white/60">
-          © {new Date().getFullYear()} The Off Season. All takes reserved.
+          © {new Date().getFullYear()} Off Season. All takes reserved.
         </div>
       </div>
     </footer>
