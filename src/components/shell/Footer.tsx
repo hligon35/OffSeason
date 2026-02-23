@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { footerColumns, socialLinks } from '@/lib/mock/links'
 
 export function Footer() {
@@ -6,17 +7,27 @@ export function Footer() {
     <footer className="mt-10 w-full bg-brand-black text-brand-white">
       <div className="mx-auto w-full max-w-screen-2xl px-3 py-10 sm:px-4 lg:px-6">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-[minmax(0,1fr),minmax(260px,360px)] lg:grid-cols-[minmax(0,1fr),420px]">
-          <div className="min-w-0">
-            <div className="text-xs font-[800] uppercase tracking-wide text-brand-white/90">Off Season</div>
-            <ul className="mt-3 space-y-2">
-              {footerColumns.flatMap((c) => c.links).map((l) => (
-                <li key={l.href + l.label}>
-                  <Link href={l.href} className="text-sm text-brand-white/75 hover:text-brand-white hover:underline">
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <div className="min-w-0 flex items-start gap-8">
+            <Image
+              src="/offseasonlogo.png"
+              alt="Off Season"
+              width={144}
+              height={144}
+              className="mt-1 h-36 w-36 shrink-0 object-contain"
+            />
+
+            <div className="min-w-0">
+              <div className="text-xs font-[800] uppercase tracking-wide text-brand-white/90">Off Season</div>
+              <ul className="mt-3 space-y-2">
+                {footerColumns.flatMap((c) => c.links).map((l) => (
+                  <li key={l.href + l.label}>
+                    <Link href={l.href} className="text-sm text-brand-white/75 hover:text-brand-white hover:underline">
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           <div className="min-w-0 rounded border border-brand-gray-800 bg-brand-black p-5">
