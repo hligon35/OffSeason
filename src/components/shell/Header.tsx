@@ -6,6 +6,7 @@ import * as React from 'react'
 import { SearchIcon, UserIcon } from '@/components/ui/Icons'
 import { useAuth } from '@/hooks/useAuth'
 import { getUserAvatarFallbackLetter, getUserAvatarUrl, getUserFirstInitialAndLastName } from '@/lib/userDisplay'
+import { searchMockEpisodesAndClips } from '@/lib/search/mockSearch'
 
 const primaryNav = [
   { label: 'Home', href: '/' },
@@ -19,12 +20,53 @@ export function Header() {
   const [scrolled, setScrolled] = React.useState(false)
   const { user, loading } = useAuth()
 
+  const [searchOpen, setSearchOpen] = React.useState(false)
+  const [searchQuery, setSearchQuery] = React.useState('')
+  const searchWrapRef = React.useRef<HTMLDivElement | null>(null)
+  const searchInputRef = React.useRef<HTMLInputElement | null>(null)
+
+  const searchResults = React.useMemo(() => {
+    if (!searchOpen) return []
+    return searchMockEpisodesAndClips(searchQuery, 6)
+  }, [searchOpen, searchQuery])
+
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 6)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  React.useEffect(() => {
+    if (!searchOpen) return
+    const t = window.setTimeout(() => searchInputRef.current?.focus(), 0)
+    return () => window.clearTimeout(t)
+  }, [searchOpen])
+
+  React.useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape') return
+      setSearchOpen(false)
+      setSearchQuery('')
+    }
+
+    const onPointerDown = (e: MouseEvent | PointerEvent) => {
+      const wrap = searchWrapRef.current
+      if (!wrap) return
+      if (wrap.contains(e.target as Node)) return
+      setSearchOpen(false)
+    }
+
+    if (searchOpen) {
+      window.addEventListener('keydown', onKeyDown)
+      window.addEventListener('pointerdown', onPointerDown)
+    }
+
+    return () => {
+      window.removeEventListener('keydown', onKeyDown)
+      window.removeEventListener('pointerdown', onPointerDown)
+    }
+  }, [searchOpen])
 
   return (
     <header
@@ -59,13 +101,56 @@ export function Header() {
         </nav>
 
         <div className="ml-auto flex items-center gap-2">
-          <button
-            type="button"
-            aria-label="Search"
-            className="inline-flex h-9 w-9 items-center justify-center rounded hover:bg-brand-gray-900"
-          >
-            <SearchIcon className="h-5 w-5" />
-          </button>
+          <div ref={searchWrapRef} className="relative flex items-center gap-2">
+            {searchOpen ? (
+              <div className="hidden sm:block">
+                <input
+                  ref={searchInputRef}
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search episodes & clips"
+                  className="h-9 w-[240px] rounded border border-brand-gray-800 bg-brand-black px-3 text-sm text-brand-white outline-none placeholder:text-brand-white/60 focus:border-brand-red"
+                  aria-label="Search episodes and clips"
+                />
+
+                {searchQuery.trim() ? (
+                  <div className="absolute right-0 top-[44px] z-50 w-[360px] overflow-hidden rounded border border-brand-gray-800 bg-brand-black shadow-sm">
+                    {searchResults.length ? (
+                      <div className="divide-y divide-brand-gray-800">
+                        {searchResults.map((r) => (
+                          <div key={r.id} className="px-3 py-2">
+                            <div className="flex items-center justify-between gap-3">
+                              <div className="min-w-0">
+                                <div className="truncate text-xs font-[800] uppercase tracking-wide text-brand-white/70">
+                                  {r.scopeLabel} · {r.kindLabel}
+                                </div>
+                                <div className="truncate text-sm font-[800] text-brand-white">{r.title}</div>
+                              </div>
+                            </div>
+                            <div className="mt-1 line-clamp-2 text-xs text-brand-white/75">{r.description}</div>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="px-3 py-3 text-sm text-brand-white/80">No results.</div>
+                    )}
+                  </div>
+                ) : null}
+              </div>
+            ) : null}
+
+            <button
+              type="button"
+              aria-label={searchOpen ? 'Close search' : 'Search'}
+              className="inline-flex h-9 w-9 items-center justify-center rounded hover:bg-brand-gray-900"
+              onClick={() => {
+                setSearchOpen((v) => !v)
+                if (searchOpen) setSearchQuery('')
+              }}
+            >
+              <SearchIcon className="h-5 w-5" />
+            </button>
+          </div>
 
           {loading || !user ? (
             <Link
