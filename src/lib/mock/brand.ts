@@ -14,7 +14,7 @@ export const showCopy = {
   title: 'The Show',
   headline: 'Off Season: Beyond The Pylons',
   description:
-    'Our main format — segments, debates, and reactions built for video-first viewing. Big takes, bigger energy, and a cast that never lets a moment go quietly.',
+    'Exploring the authentic stories of elite athletes during their OFFSEASON',
   ctaLabel: 'See episodes',
   ctaHref: '/the-show#episodes',
 } as const

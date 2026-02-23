@@ -1,5 +1,24 @@
 import { forumTimelinePosts } from '@/lib/mock/forums'
+import type { Metadata } from 'next'
 import { MetaLine, Thumb } from '@/components/feed/shared'
+
+export const metadata: Metadata = {
+  title: 'Forums',
+  description: 'Join the Off Season forums—react to episodes, debate the moments, and keep the takes moving.',
+  keywords: ['Off Season forums', 'sports community', 'episode discussion', 'hot takes'],
+  alternates: { canonical: '/forums' },
+  openGraph: {
+    title: 'Forums | Off Season',
+    description: 'React to episodes, debate moments, and keep the takes moving.',
+    url: '/forums',
+    images: [{ url: '/offseasonlogo.png' }],
+  },
+  twitter: {
+    title: 'Forums | Off Season',
+    description: 'React to episodes, debate moments, and keep the takes moving.',
+    images: ['/offseasonlogo.png'],
+  },
+}
 
 export default function ForumsPage() {
   return (
@@ -8,7 +27,7 @@ export default function ForumsPage() {
         <div className="text-xs font-[800] uppercase tracking-wide text-brand-gray-600">Community</div>
         <h1 className="mt-1 text-3xl font-[800] tracking-tightish sm:text-4xl">Forums</h1>
         <p className="mt-3 max-w-2xl text-sm text-brand-gray-700 sm:text-base">
-          A social timeline for episode talk, drops, and everything in between. (Mock data for now.)
+          Where the takes live—react to episodes, debate the moments, and catch the latest drops.
         </p>
       </section>
 

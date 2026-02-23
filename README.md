@@ -10,6 +10,25 @@ Sports + culture media brand scaffold (Next.js App Router + TypeScript + Tailwin
 
 ## Deploy (Cloudflare Pages)
 
+This repo can be deployed a couple ways. Given the current code (Next.js API routes for Stripe/Mux/Firebase Admin), **Vercel + Firebase** is the lowest-friction production path.
+
+## Deploy (Vercel + Firebase)
+
+1. Create a new Vercel project from this repo.
+2. Set environment variables in Vercel (Project → Settings → Environment Variables):
+	- Firebase client (browser): `NEXT_PUBLIC_FIREBASE_*`
+	- Firebase Admin (server): `FIREBASE_PROJECT_ID`, `FIREBASE_CLIENT_EMAIL`, `FIREBASE_PRIVATE_KEY` (or `GOOGLE_APPLICATION_CREDENTIALS`)
+	- Stripe/Mux secrets when you wire them up
+3. In Firebase Console → Authentication → Settings → Authorized domains:
+	- Add your Vercel production domain (and any preview domains you rely on)
+	- Keep `localhost` for local dev
+
+Important: never set `OFFSEASON_DEV_BYPASS_AUTH=true` in production.
+
+---
+
+## Deploy (Cloudflare Pages)
+
 Cloudflare Pages needs a static output directory for deployment. For Next.js (App Router) on Cloudflare Pages, use the adapter build.
 
 - Build command: `npm run pages:build`

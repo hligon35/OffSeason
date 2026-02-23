@@ -1,11 +1,31 @@
 import Link from 'next/link'
-import { AuthProvider } from '@/components/auth/AuthProvider'
+import Head from 'next/head'
 import { LoginButtons } from '@/components/auth/LoginButtons'
 import { DevSignIn } from '@/components/auth/DevSignIn'
 
 export default function LoginPage() {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://off-season.io'
+  const canonical = `${siteUrl.replace(/\/$/, '')}/login`
+
   return (
-    <AuthProvider>
+    <>
+      <Head>
+        <title>Login | Off Season</title>
+        <meta name="description" content="Sign in to Off Season to access your account, purchases, and entitlements." />
+        <meta name="keywords" content="Off Season login, sign in, account access, purchases, entitlements" />
+        <link rel="canonical" href={canonical} />
+        <meta property="og:title" content="Login | Off Season" />
+        <meta property="og:description" content="Sign in to Off Season to access your account, purchases, and entitlements." />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={`${siteUrl.replace(/\/$/, '')}/offseasonlogo.png`} />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Login | Off Season" />
+        <meta name="twitter:description" content="Sign in to Off Season to access your account, purchases, and entitlements." />
+        <meta name="twitter:image" content={`${siteUrl.replace(/\/$/, '')}/offseasonlogo.png`} />
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
+
       <div className="mx-auto w-full max-w-xl space-y-4">
         <div className="rounded border border-brand-gray-200 bg-brand-white p-5">
           <div className="text-xs font-[800] uppercase tracking-wide text-brand-gray-600">Login</div>
@@ -34,6 +54,6 @@ export default function LoginPage() {
           </div>
         </div>
       </div>
-    </AuthProvider>
+    </>
   )
 }

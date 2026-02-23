@@ -82,7 +82,7 @@ export function Header() {
             alt="Off Season"
             width={28}
             height={28}
-            className="h-7 w-7 rounded"
+            className="h-7 w-7 object-contain"
             priority
           />
           <span className="text-sm sm:text-base">OFF SEASON</span>

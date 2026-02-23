@@ -5,7 +5,9 @@ out
 dist
 .DS_Store
 .env*
+env.secrets
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+.env.*

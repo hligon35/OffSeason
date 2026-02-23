@@ -4,12 +4,12 @@ This repo currently contains **scaffold-only** implementations for Firebase Auth
 
 ## 1) Local environment file
 
-- Fill in the placeholders in `env.secrets`.
+- Fill in the placeholders in `env.secrets.example`.
 - Then either:
-  - copy values into `.env.local` (recommended for Next.js), or
-  - start Next with your shell loading `env.secrets`.
+  - copy the values into `.env.local` (recommended for Next.js), or
+  - copy it to `env.secrets` and start Next with your shell loading `env.secrets`.
 
-Note: `.gitignore` already ignores `.env*` files, but **does not ignore** `env.secrets` by default.
+Note: `.gitignore` ignores `.env*` files and `env.secrets`. Avoid committing any secret-bearing env file.
 
 ## Production domain
 
@@ -85,6 +85,14 @@ Webhook events are still received on the **platform** account webhook endpoint (
 Expected behavior (to implement later):
 - API endpoint returns a **signed playback URL**
 - Client never sees Mux asset IDs
+
+### Mux Data analytics (recommended)
+
+If you use Mux Player on the web, set the Mux Data environment key as a **public** Next.js env var:
+
+- `NEXT_PUBLIC_MUX_DATA_ENV_KEY`
+
+This value is used client-side (in the player component) via the `envKey` prop/attribute.
 
 ## Key files
 

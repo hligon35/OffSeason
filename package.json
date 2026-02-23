@@ -12,6 +12,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mux/mux-node": "^12.8.1",
+    "@mux/mux-player-react": "^3.11.4",
     "firebase": "^12.9.0",
     "firebase-admin": "^13.6.1",
     "next": "15.5.12",

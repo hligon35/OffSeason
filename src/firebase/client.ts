@@ -57,7 +57,7 @@ async function getDevSessionUser(): Promise<AuthUser | null> {
 function notConfigured(method: string): never {
   throw new Error(
     `Firebase client auth is not configured. Tried to call ${method}. ` +
-      'Set NEXT_PUBLIC_FIREBASE_* env vars (see env.secrets) and restart dev server.'
+      'Set NEXT_PUBLIC_FIREBASE_* env vars (see env.secrets.example) and restart dev server.'
   )
 }
 

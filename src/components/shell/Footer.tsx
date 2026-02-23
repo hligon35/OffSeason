@@ -36,6 +36,9 @@ export function Footer() {
             <form className="mt-4 flex flex-col gap-2 sm:flex-row sm:items-center">
               <input
                 type="email"
+                aria-label="Email address"
+                autoComplete="email"
+                inputMode="email"
                 placeholder="you@domain.com"
                 className="w-full rounded border border-brand-gray-800 bg-brand-black px-3 py-2 text-sm text-brand-white outline-none placeholder:text-brand-white/40 focus:border-brand-red"
               />

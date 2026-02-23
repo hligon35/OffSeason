@@ -1,8 +1,28 @@
 import Image from 'next/image'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Podcast',
+  description: 'The Off Season Podcast—news, conversations, and culture. Join the list for launch updates.',
+  keywords: ['Off Season podcast', 'sports podcast', 'sports culture podcast', 'athlete conversations'],
+  alternates: { canonical: '/podcast' },
+  openGraph: {
+    title: 'Podcast | Off Season',
+    description: 'News, conversations, and culture. Join the list for launch updates.',
+    url: '/podcast',
+    images: [{ url: '/The Podcast.png' }],
+  },
+  twitter: {
+    title: 'Podcast | Off Season',
+    description: 'News, conversations, and culture. Join the list for launch updates.',
+    images: ['/The Podcast.png'],
+  },
+}
 
 export default function PodcastPage() {
   return (
     <div className="space-y-6">
+      <h1 className="sr-only">Off Season Podcast</h1>
       <section className="overflow-hidden rounded border border-brand-gray-200 bg-brand-black">
         <div className="relative aspect-[16/9] w-full">
           <Image
@@ -26,6 +46,9 @@ export default function PodcastPage() {
         <form className="mt-5 flex flex-col gap-2 sm:flex-row sm:items-center">
           <input
             type="email"
+            aria-label="Email address"
+            autoComplete="email"
+            inputMode="email"
             placeholder="you@domain.com"
             className="w-full rounded border border-brand-gray-200 bg-brand-white px-3 py-2 text-sm text-brand-black outline-none placeholder:text-brand-gray-400 focus:border-brand-red"
           />

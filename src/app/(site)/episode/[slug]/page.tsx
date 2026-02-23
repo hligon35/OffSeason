@@ -1,7 +1,36 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
 import { getMockEpisode, slugify } from '@/lib/mock/content'
 import { PlayIcon } from '@/components/ui/Icons'
 import { FilteredFeed } from '@/components/brand/FilteredFeed'
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const episode = getMockEpisode(slug)
+
+  const title = episode?.title ? `${episode.title}` : 'Episode'
+  const description = episode?.summary
+    ? String(episode.summary)
+    : 'Watch full Off Season episodes—bold sports + culture, all personality.'
+
+  return {
+    title,
+    description,
+    keywords: ['Off Season episode', 'full episode', 'sports culture', 'behind the scenes', 'training camp'],
+    alternates: { canonical: `/episode/${encodeURIComponent(slug)}` },
+    openGraph: {
+      title: `${title} | Off Season`,
+      description,
+      url: `/episode/${encodeURIComponent(slug)}`,
+      images: [{ url: '/offseasonlogo.png' }],
+    },
+    twitter: {
+      title: `${title} | Off Season`,
+      description,
+      images: ['/offseasonlogo.png'],
+    },
+  }
+}
 
 export default async function EpisodePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params

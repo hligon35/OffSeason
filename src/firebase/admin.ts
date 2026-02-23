@@ -63,7 +63,11 @@ export async function verifyFirebaseIdToken({ authorizationHeader }: VerifyOptio
   // Scaffold-only behavior:
   // - If OFFSEASON_DEV_BYPASS_AUTH is set, accept any token and treat it as a userId.
   // - Otherwise, instruct how to enable real verification.
+  const isProduction = process.env.NODE_ENV === 'production' || process.env.VERCEL_ENV === 'production'
   if (process.env.OFFSEASON_DEV_BYPASS_AUTH === 'true') {
+    if (isProduction) {
+      throw Object.assign(new Error('OFFSEASON_DEV_BYPASS_AUTH is not allowed in production.'), { statusCode: 500 })
+    }
     const userId = token
     const roles: UserRole[] = ['user']
     return { userId, roles, raw: { bypass: true } }

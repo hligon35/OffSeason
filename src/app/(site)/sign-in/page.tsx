@@ -1,7 +1,16 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
 import { LoginButtons } from '@/components/auth/LoginButtons'
 import { EmailPasswordAuth } from '@/components/auth/EmailPasswordAuth'
 import { DevSignIn } from '@/components/auth/DevSignIn'
+
+export const metadata: Metadata = {
+  title: 'Sign In',
+  description: 'Sign in to Off Season to access your purchases, entitlements, and account settings.',
+  keywords: ['Off Season sign in', 'account login', 'purchase access'],
+  alternates: { canonical: '/sign-in' },
+  robots: { index: false, follow: false },
+}
 
 export default function SignInPage() {
   return (

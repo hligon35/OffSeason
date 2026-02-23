@@ -1,10 +1,29 @@
 import { getMockFeedPage } from '@/lib/mock/content'
+import type { Metadata } from 'next'
 import { ShowHero } from '@/components/brand/ShowHero'
 import { ClipList } from '@/components/brand/ClipList'
 import { HostCard } from '@/components/brand/HostCard'
 import { CTAButton } from '@/components/ui/CTAButton'
 import storeData from '@/lib/storefront/storeData.json'
 import { VideoStoreEpisodesSection } from '@/components/storefront/VideoStoreEpisodesSection'
+
+export const metadata: Metadata = {
+  title: 'The Show',
+  description: 'Watch Off Season TV: full episodes, cast features, and behind-the-scenes clips from Season One.',
+  keywords: ['Off Season TV', 'full episodes', 'sports series', 'behind the scenes', 'Season One'],
+  alternates: { canonical: '/the-show' },
+  openGraph: {
+    title: 'The Show | Off Season',
+    description: 'Full episodes, cast features, and behind-the-scenes clips from Season One.',
+    url: '/the-show',
+    images: [{ url: '/offseasonlogo.png' }],
+  },
+  twitter: {
+    title: 'The Show | Off Season',
+    description: 'Full episodes, cast features, and behind-the-scenes clips from Season One.',
+    images: ['/offseasonlogo.png'],
+  },
+}
 
 export default function TheShowPage() {
   const behindTheScenesClips = getMockFeedPage({ scope: 'topic:behind-the-scenes', page: 0, pageSize: 8 }).items
@@ -55,8 +74,7 @@ export default function TheShowPage() {
             <div className="text-xs font-[800] uppercase tracking-wide text-brand-gray-600">Show description</div>
             <h2 className="mt-1 text-2xl font-[800] tracking-tightish">What Off Season is</h2>
             <p className="mt-3 text-sm text-brand-gray-700 sm:text-base">
-              A video-first series built around segments: quick debates, reactions, and “how did this happen?” breakdowns.
-              It’s a weekly drop with daily clip energy — made for fans who want the highlights and the heat.
+              Rare, unfiltered access to the NFL&apos;s elite during the most consequential stretch of the year-where brutal training, family commitments, and high-stakes business decisions quietly shape careers when the spotlight is gone.
             </p>
 
             <div className="mt-5 flex flex-wrap items-center gap-3">

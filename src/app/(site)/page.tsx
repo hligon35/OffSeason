@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import type { Metadata } from 'next'
 import { getMockFeedPage } from '@/lib/mock/content'
 import { AboutSection } from '@/components/brand/AboutSection'
 import { EpisodeList } from '@/components/brand/EpisodeList'
@@ -7,11 +8,37 @@ import { CTAButton } from '@/components/ui/CTAButton'
 import { brandCopy } from '@/lib/mock/brand'
 import { socialLinks } from '@/lib/mock/links'
 
+export const metadata: Metadata = {
+  title: 'Home',
+  description: 'Off Season is bold sports + culture—full episodes, clips, and behind-the-scenes from the people in it.',
+  keywords: [
+    'Off Season',
+    'sports culture',
+    'full episodes',
+    'sports clips',
+    'behind the scenes',
+    'athlete stories',
+  ],
+  alternates: { canonical: '/' },
+  openGraph: {
+    title: 'Off Season',
+    description: 'Bold sports + culture—full episodes, clips, and behind-the-scenes.',
+    url: '/',
+    images: [{ url: '/offseasonlogo.png' }],
+  },
+  twitter: {
+    title: 'Off Season',
+    description: 'Bold sports + culture—full episodes, clips, and behind-the-scenes.',
+    images: ['/offseasonlogo.png'],
+  },
+}
+
 export default function HomePage() {
   const latestEpisodes = getMockFeedPage({ scope: 'episodes', page: 0, pageSize: 10 }).items
 
   return (
     <div className="space-y-6">
+      <h1 className="sr-only">Off Season</h1>
       <section className="overflow-hidden rounded border border-brand-gray-200 bg-brand-black">
         <div className="relative aspect-[16/9] w-full">
           <Image
