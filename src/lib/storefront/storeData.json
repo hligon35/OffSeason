@@ -13,8 +13,8 @@
       "purchasePrice": 19.99,
       "rentalPrice": 9.99,
       "currency": "USD",
-      "purchaseUrl": "https://example.com/purchase/season-1",
-      "rentalUrl": "https://example.com/rent/season-1"
+      "purchaseUrl": "https://off-season.io/purchase/season-1",
+      "rentalUrl": "https://off-season.io/rent/season-1"
     },
     "episode": {
       "purchasePrice": 2.99,
@@ -35,8 +35,8 @@
         "label": "Preview",
         "vimeoOttEmbedUrl": "https://player.vimeo.com/video/000000001?h=PLACEHOLDER"
       },
-      "purchaseUrl": "https://example.com/purchase/s1e1",
-      "rentalUrl": "https://example.com/rent/s1e1"
+      "purchaseUrl": "https://off-season.io/purchase/s1e1",
+      "rentalUrl": "https://off-season.io/rent/s1e1"
     },
     {
       "id": "s1e2",
@@ -50,8 +50,8 @@
         "label": "Preview",
         "vimeoOttEmbedUrl": "https://player.vimeo.com/video/000000002?h=PLACEHOLDER"
       },
-      "purchaseUrl": "https://example.com/purchase/s1e2",
-      "rentalUrl": "https://example.com/rent/s1e2"
+      "purchaseUrl": "https://off-season.io/purchase/s1e2",
+      "rentalUrl": "https://off-season.io/rent/s1e2"
     },
     {
       "id": "s1e3",
@@ -65,8 +65,8 @@
         "label": "Preview",
         "vimeoOttEmbedUrl": "https://player.vimeo.com/video/000000003?h=PLACEHOLDER"
       },
-      "purchaseUrl": "https://example.com/purchase/s1e3",
-      "rentalUrl": "https://example.com/rent/s1e3"
+      "purchaseUrl": "https://off-season.io/purchase/s1e3",
+      "rentalUrl": "https://off-season.io/rent/s1e3"
     },
     {
       "id": "s1e4",
@@ -80,8 +80,8 @@
         "label": "Preview",
         "vimeoOttEmbedUrl": "https://player.vimeo.com/video/000000004?h=PLACEHOLDER"
       },
-      "purchaseUrl": "https://example.com/purchase/s1e4",
-      "rentalUrl": "https://example.com/rent/s1e4"
+      "purchaseUrl": "https://off-season.io/purchase/s1e4",
+      "rentalUrl": "https://off-season.io/rent/s1e4"
     },
     {
       "id": "s1e5",
@@ -95,8 +95,8 @@
         "label": "Preview",
         "vimeoOttEmbedUrl": "https://player.vimeo.com/video/000000005?h=PLACEHOLDER"
       },
-      "purchaseUrl": "https://example.com/purchase/s1e5",
-      "rentalUrl": "https://example.com/rent/s1e5"
+      "purchaseUrl": "https://off-season.io/purchase/s1e5",
+      "rentalUrl": "https://off-season.io/rent/s1e5"
     }
   ]
 }

@@ -1,5 +1,6 @@
 import { CTAButton } from '@/components/ui/CTAButton'
 import { showCopy } from '@/lib/mock/brand'
+import Image from 'next/image'
 
 export function ShowHero() {
   return (
@@ -20,19 +21,31 @@ export function ShowHero() {
             </div>
           </div>
 
-          <div className="w-full max-w-xl">
-            <div className="relative aspect-[16/9] w-full overflow-hidden rounded bg-brand-gray-100">
-              <iframe
-                className="absolute inset-0 h-full w-full"
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/LquSflkT4x4?autoplay=1&mute=1&loop=1&playlist=LquSflkT4x4&playsinline=1&controls=0"
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-              />
+          <div className="w-full max-w-2xl">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div className="relative aspect-[16/9] w-full overflow-hidden rounded bg-brand-gray-100">
+                <iframe
+                  className="absolute inset-0 h-full w-full"
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/LquSflkT4x4?autoplay=1&mute=1&loop=1&playlist=LquSflkT4x4&playsinline=1&controls=0"
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+
+              <div className="relative aspect-[16/9] w-full overflow-hidden rounded bg-brand-gray-100">
+                <Image
+                  src="/season2.png"
+                  alt="Season 2"
+                  fill
+                  sizes="(min-width: 1024px) 420px, (min-width: 640px) 50vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>

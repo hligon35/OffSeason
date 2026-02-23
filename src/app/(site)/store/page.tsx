@@ -2,33 +2,22 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export default function StorePage() {
-  const products = [
-    { name: 'Hoodie', imageSrc: '/products/hoodie.png' },
-    { name: 'Hat', imageSrc: '/products/hat.png' },
-    { name: 'Tee', imageSrc: '/products/tee.png' },
-  ] as const
-
   return (
     <div className="rounded border border-brand-gray-200 bg-brand-white p-6">
       <h1 className="text-2xl font-[800] tracking-tightish">Store</h1>
-      <p className="mt-2 text-sm text-brand-gray-700">Placeholder storefront. Merch modules and checkout come later.</p>
+      <p className="mt-2 text-sm text-brand-gray-700">Merch store coming soon.</p>
 
-      <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-3">
-        {products.map((p) => (
-          <div key={p.name} className="rounded border border-brand-gray-200 p-4">
-            <div className="relative aspect-square w-full overflow-hidden rounded bg-brand-gray-100">
-              <Image
-                src={p.imageSrc}
-                alt={p.name}
-                fill
-                sizes="(min-width: 640px) 33vw, 100vw"
-                className="object-cover"
-              />
-            </div>
-            <div className="mt-3 text-sm font-[800]">{p.name}</div>
-            <div className="text-xs text-brand-gray-600">Coming soon</div>
-          </div>
-        ))}
+      <div className="mt-5 overflow-hidden rounded border border-brand-gray-200 bg-brand-gray-100">
+        <div className="relative h-[60vh] w-full">
+          <Image
+            src="/merch.png"
+            alt="Off Season merch"
+            fill
+            priority
+            sizes="(min-width: 1024px) 900px, 100vw"
+            className="object-contain"
+          />
+        </div>
       </div>
 
       <Link

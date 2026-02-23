@@ -4,16 +4,20 @@ import Link from 'next/link'
 import Image from 'next/image'
 import * as React from 'react'
 import { SearchIcon, UserIcon } from '@/components/ui/Icons'
+import { useAuth } from '@/hooks/useAuth'
+import { getUserAvatarFallbackLetter, getUserAvatarUrl, getUserFirstInitialAndLastName } from '@/lib/userDisplay'
 
 const primaryNav = [
   { label: 'Home', href: '/' },
   { label: 'The Show', href: '/the-show' },
   { label: 'The Podcast', href: '/podcast' },
+  { label: 'Forums', href: '/forums' },
   { label: 'Store', href: '/store' },
 ] as const
 
 export function Header() {
   const [scrolled, setScrolled] = React.useState(false)
+  const { user, loading } = useAuth()
 
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 6)
@@ -63,13 +67,43 @@ export function Header() {
             <SearchIcon className="h-5 w-5" />
           </button>
 
-          <Link
-            href="/sign-in"
-            className="inline-flex items-center gap-2 rounded border border-brand-gray-800 px-3 py-2 text-xs font-[800] uppercase tracking-wide hover:border-brand-red"
-          >
-            <UserIcon className="h-4 w-4" />
-            <span>Sign In</span>
-          </Link>
+          {loading || !user ? (
+            <Link
+              href="/sign-in"
+              className="inline-flex items-center gap-2 rounded border border-brand-gray-800 px-3 py-2 text-xs font-[800] uppercase tracking-wide hover:border-brand-red"
+            >
+              <UserIcon className="h-4 w-4" />
+              <span>Sign In</span>
+            </Link>
+          ) : (
+            (() => {
+              const avatarUrl = getUserAvatarUrl(user)
+              return (
+            <Link
+              href="/account"
+              className="inline-flex items-center gap-2 rounded border border-brand-gray-800 px-3 py-2 text-xs font-[800] tracking-wide hover:border-brand-red"
+              aria-label="Account"
+            >
+              {avatarUrl ? (
+                <Image
+                  src={avatarUrl}
+                  alt=""
+                  width={20}
+                  height={20}
+                  className="h-5 w-5 rounded-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+              ) : (
+                <div className="flex h-5 w-5 items-center justify-center rounded-full bg-brand-gray-900 text-[10px] font-[800] text-brand-white">
+                  {getUserAvatarFallbackLetter(user)}
+                </div>
+              )}
+              <span className="hidden sm:inline">{getUserFirstInitialAndLastName(user)}</span>
+              <span className="sm:hidden">{getUserAvatarFallbackLetter(user)}</span>
+            </Link>
+              )
+            })()
+          )}
         </div>
       </div>
 

@@ -16,3 +16,12 @@ Cloudflare Pages needs a static output directory for deployment. For Next.js (Ap
 - Output directory: `.vercel/output/static`
 
 After you save those settings, trigger a new deployment in Cloudflare Pages.
+
+### Custom domain
+
+Set the production domain in Cloudflare Pages:
+
+- Pages project → **Custom domains** → add `off-season.io`
+- Ensure DNS records are created/verified by Cloudflare
+
+Then add `off-season.io` to Firebase Auth **Authorized domains** so sign-in works in production.

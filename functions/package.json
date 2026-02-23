@@ -1,0 +1,9 @@
+{
+  "name": "offseason-functions",
+  "private": true,
+  "type": "module",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  }
+}
