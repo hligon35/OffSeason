@@ -7,14 +7,14 @@ import { useAuth } from '@/hooks/useAuth'
 
 export function EpisodePlayer(props: {
   episodeId: string
-  productId: string
+  productIds: string[]
   episodeTitle: string
   seasonNumber?: number
   episodeNumber?: number
   posterSrc?: string
 }) {
   const { user } = useAuth()
-  const { url, loading, error, load } = usePlaybackUrl(props.episodeId, props.productId)
+  const { url, loading, error, load } = usePlaybackUrl(props.episodeId, props.productIds)
 
   const envKey = process.env.NEXT_PUBLIC_MUX_DATA_ENV_KEY
 
@@ -28,11 +28,11 @@ export function EpisodePlayer(props: {
       video_series: 'Off Season',
       video_stream_type: 'on-demand',
       viewer_user_id: user?.userId,
-      custom_1: props.productId,
+      custom_1: props.productIds[0],
       custom_2: props.seasonNumber != null ? String(props.seasonNumber) : undefined,
       custom_3: props.episodeNumber != null ? String(props.episodeNumber) : undefined,
     }),
-    [props.episodeId, props.episodeNumber, props.episodeTitle, props.productId, props.seasonNumber, user?.userId]
+    [props.episodeId, props.episodeNumber, props.episodeTitle, props.productIds, props.seasonNumber, user?.userId]
   )
 
   return (

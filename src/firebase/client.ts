@@ -23,6 +23,25 @@ type FirebaseConfig = {
   measurementId?: string
 }
 
+function deriveProviderNameFromFirebaseUser(u: any): string | null {
+  const providerIds: string[] = Array.isArray(u?.providerData)
+    ? u.providerData
+        .map((p: any) => (typeof p?.providerId === 'string' ? p.providerId : null))
+        .filter(Boolean)
+    : []
+
+  // Prefer explicit providerData entries.
+  if (providerIds.includes('google.com')) return 'google'
+  if (providerIds.includes('apple.com')) return 'apple'
+  if (providerIds.includes('password')) return 'password'
+
+  // Fallback: Firebase Auth User.providerId is typically 'firebase'.
+  const fallback = typeof u?.providerId === 'string' ? u.providerId : null
+  if (fallback && fallback !== 'firebase') return fallback
+  if (providerIds.length) return providerIds[0]!
+  return fallback
+}
+
 function readFirebaseConfigFromEnv(): FirebaseConfig | null {
   const apiKey = process.env.NEXT_PUBLIC_FIREBASE_API_KEY
   const authDomain = process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
@@ -111,7 +130,7 @@ export const clientAuth: ClientAuth = {
         email: u.email,
         displayName: u.displayName,
         photoURL: u.photoURL,
-        provider: u.providerId,
+        provider: deriveProviderNameFromFirebaseUser(u),
         roles: ['user'],
       }
     }
@@ -127,7 +146,7 @@ export const clientAuth: ClientAuth = {
             email: u.email,
             displayName: u.displayName,
             photoURL: u.photoURL,
-            provider: u.providerId,
+            provider: deriveProviderNameFromFirebaseUser(u),
             roles: ['user'],
           })
         },

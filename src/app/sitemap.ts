@@ -11,7 +11,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/the-show',
     '/podcast',
     '/forums',
-    '/store',
     // Keep auth/checkout routes out of the sitemap.
     '/media',
     '/merch',

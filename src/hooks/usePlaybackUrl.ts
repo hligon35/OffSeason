@@ -4,14 +4,14 @@ import * as React from 'react'
 import { useAuth } from '@/hooks/useAuth'
 import { getFirebaseIdTokenOrNull } from '@/firebase/client'
 
-export function usePlaybackUrl(episodeId: string | null, productId: string | null) {
+export function usePlaybackUrl(episodeId: string | null, productIds: string[] | null) {
   const { user } = useAuth()
   const [url, setUrl] = React.useState<string | null>(null)
   const [loading, setLoading] = React.useState(false)
   const [error, setError] = React.useState<string | null>(null)
 
   const load = React.useCallback(async () => {
-    if (!episodeId || !productId) return
+    if (!episodeId || !productIds || productIds.length === 0) return
     if (!user) {
       setError('Sign in to load playback')
       return
@@ -24,7 +24,7 @@ export function usePlaybackUrl(episodeId: string | null, productId: string | nul
       const idToken = await getFirebaseIdTokenOrNull()
       const token = idToken || user.userId
       const authedRes = await fetch(
-        `/api/playback-url?episodeId=${encodeURIComponent(episodeId)}&productId=${encodeURIComponent(productId)}`,
+        `/api/playback-url?episodeId=${encodeURIComponent(episodeId)}&productIds=${encodeURIComponent(productIds.join(','))}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -39,7 +39,7 @@ export function usePlaybackUrl(episodeId: string | null, productId: string | nul
     } finally {
       setLoading(false)
     }
-  }, [episodeId, productId, user])
+  }, [episodeId, productIds, user])
 
   return { url, loading, error, load }
 }

@@ -56,7 +56,7 @@ export function LoginButtons() {
       ) : null}
 
       <div className="pt-2 text-xs text-brand-gray-600">
-        Auth is scaffold-only right now. Wire Firebase client SDK in <span className="font-[800]">src/firebase/client.ts</span>.
+        Uses Firebase Auth. If sign-in fails, verify <span className="font-[800]">NEXT_PUBLIC_FIREBASE_*</span> vars are set in Vercel and the provider is enabled in Firebase Console.
       </div>
     </div>
   )

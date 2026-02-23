@@ -29,6 +29,11 @@ export async function hasEntitlement(userId: string, productId: string): Promise
   return ents.some((e) => e.productId === productId && (e.expiresAt == null || Date.parse(e.expiresAt) > Date.now()))
 }
 
+export async function upsertEntitlement(userId: string, entitlement: Entitlement): Promise<void> {
+  const db = getAdminDb()
+  await db.collection('entitlements').doc(userId).collection('items').doc(entitlement.productId).set(entitlement, { merge: true })
+}
+
 export async function grantEntitlement(userId: string, productId: string): Promise<void> {
   const db = getAdminDb()
   const now = new Date().toISOString()

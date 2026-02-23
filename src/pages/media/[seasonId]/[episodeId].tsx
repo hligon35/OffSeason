@@ -2,7 +2,6 @@ import Link from 'next/link'
 import Head from 'next/head'
 import type { GetStaticPaths, GetStaticProps } from 'next'
 import { EpisodePlayer } from '@/components/media/EpisodePlayer'
-import { startStripeCheckout } from '@/lib/stripe/client'
 import storeData from '@/lib/storefront/storeData.json'
 
 type Episode = (typeof storeData)['episodes'][number]
@@ -22,7 +21,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<{
   episode: Episode
   canonical: string
-  productId: string
+  productIds: string[]
 }> = async (ctx) => {
   const seasonId = String(ctx.params?.seasonId ?? '')
   const episodeId = String(ctx.params?.episodeId ?? '')
@@ -38,12 +37,20 @@ export const getStaticProps: GetStaticProps<{
     props: {
       episode,
       canonical: `${siteUrl}/media/${seasonId}/${episodeId}`,
-      productId: `media_season${episode.season}`,
+      productIds: [`media_season${episode.season}`, `media_${episode.id}`],
     },
   }
 }
 
-export default function EpisodePage({ episode, canonical, productId }: { episode: Episode; canonical: string; productId: string }) {
+export default function EpisodePage({
+  episode,
+  canonical,
+  productIds,
+}: {
+  episode: Episode
+  canonical: string
+  productIds: string[]
+}) {
   const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://off-season.io').replace(/\/$/, '')
   const title = `Episode ${episode.episodeNumber} — ${episode.title} | Off Season`
   const description = `Watch Episode ${episode.episodeNumber} of Off Season: ${episode.title}.`
@@ -75,13 +82,12 @@ export default function EpisodePage({ episode, canonical, productId }: { episode
           <p className="mt-2 text-sm text-brand-gray-700">{episode.description}</p>
 
           <div className="mt-5 flex flex-wrap items-center gap-3">
-            <button
-              type="button"
-              onClick={() => startStripeCheckout(productId)}
+            <Link
+              href="/the-show#episodes"
               className="rounded bg-brand-red px-3 py-2 text-xs font-[800] uppercase tracking-wide text-brand-white"
             >
-              Buy season access
-            </button>
+              Get access on The Show
+            </Link>
             <Link href="/account" className="text-sm text-brand-gray-700 hover:text-brand-red">
               Account
             </Link>
@@ -90,7 +96,7 @@ export default function EpisodePage({ episode, canonical, productId }: { episode
 
         <EpisodePlayer
           episodeId={episode.id}
-          productId={productId}
+          productIds={productIds}
           episodeTitle={episode.title}
           seasonNumber={episode.season}
           episodeNumber={episode.episodeNumber}

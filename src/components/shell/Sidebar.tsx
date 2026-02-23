@@ -58,10 +58,10 @@ export function Sidebar() {
           <div className="text-sm font-[800] uppercase tracking-wide">New Drop</div>
           <div className="mt-1 text-sm text-brand-gray-700">Off Season essentials. Loud logos. Clean fits.</div>
           <Link
-            href="/store"
+            href="/merch"
             className="mt-3 inline-flex rounded bg-brand-black px-3 py-2 text-xs font-[800] uppercase tracking-wide text-brand-white hover:bg-brand-gray-900"
           >
-            Shop Store
+            Shop Merch
           </Link>
         </div>
       </ModuleShell>

@@ -129,7 +129,7 @@ export default function TheShowPage() {
         </div>
       </section>
 
-      <VideoStoreEpisodesSection data={storeData} />
+      <VideoStoreEpisodesSection data={storeData} seasonProductId="media_season1" />
 
       <section id="clips">
         <ClipList title="Behind-the-scenes" items={behindTheScenesClips} viewAllHref="#clips" />

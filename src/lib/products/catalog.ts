@@ -19,6 +19,36 @@ export const PRODUCTS: Product[] = [
     description: 'Unlock all Season 1 episodes.',
   },
   {
+    productId: 'media_s1e1',
+    kind: 'digital',
+    title: 'Season 1 • Episode 1',
+    description: 'Unlock Episode 1.',
+  },
+  {
+    productId: 'media_s1e2',
+    kind: 'digital',
+    title: 'Season 1 • Episode 2',
+    description: 'Unlock Episode 2.',
+  },
+  {
+    productId: 'media_s1e3',
+    kind: 'digital',
+    title: 'Season 1 • Episode 3',
+    description: 'Unlock Episode 3.',
+  },
+  {
+    productId: 'media_s1e4',
+    kind: 'digital',
+    title: 'Season 1 • Episode 4',
+    description: 'Unlock Episode 4.',
+  },
+  {
+    productId: 'media_s1e5',
+    kind: 'digital',
+    title: 'Season 1 • Episode 5',
+    description: 'Unlock Episode 5.',
+  },
+  {
     productId: 'merch_hoodie_black',
     kind: 'physical',
     title: 'Off Season Hoodie (Black)',

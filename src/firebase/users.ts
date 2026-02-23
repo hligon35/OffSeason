@@ -7,6 +7,7 @@ export type UserDoc = {
   createdAt: string
   lastLogin: string
   roles: UserRole[]
+  stripeCustomerId?: string | null
 }
 
 export async function ensureUserDocument(params: {
@@ -45,4 +46,17 @@ export async function ensureUserDocument(params: {
       { merge: true }
     )
   })
+}
+
+export async function getStripeCustomerId(userId: string): Promise<string | null> {
+  const db = getAdminDb()
+  const snap = await db.collection('users').doc(userId).get()
+  const data = snap.exists ? (snap.data() as Partial<UserDoc>) : null
+  const id = data?.stripeCustomerId
+  return typeof id === 'string' && id.trim() ? id : null
+}
+
+export async function setStripeCustomerId(userId: string, stripeCustomerId: string): Promise<void> {
+  const db = getAdminDb()
+  await db.collection('users').doc(userId).set({ stripeCustomerId }, { merge: true })
 }

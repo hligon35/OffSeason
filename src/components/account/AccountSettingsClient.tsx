@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { useAuth } from '@/hooks/useAuth'
 import { useEntitlements } from '@/hooks/useEntitlements'
 import { getUserAvatarFallbackLetter, getUserAvatarUrl, getUserFirstInitialAndLastName } from '@/lib/userDisplay'
+import { openStripeBillingPortal } from '@/lib/stripe/client'
 
 type SectionId = 'overview' | 'library' | 'billing' | 'security' | 'notifications' | 'support'
 
@@ -17,6 +18,17 @@ const sections: Array<{ id: SectionId; label: string; description: string }> = [
   { id: 'notifications', label: 'Notifications', description: 'Email preferences.' },
   { id: 'support', label: 'Support', description: 'Help, policies, and account help.' },
 ]
+
+function formatProviderLabel(provider: string | null | undefined): string {
+  const p = (provider ?? '').trim().toLowerCase()
+  if (!p) return '—'
+  if (p === 'google' || p === 'google.com') return 'Google'
+  if (p === 'apple' || p === 'apple.com') return 'Apple'
+  if (p === 'password') return 'Email/Password'
+  if (p === 'dev') return 'Dev'
+  if (p === 'firebase') return 'Firebase'
+  return provider ?? '—'
+}
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
@@ -79,6 +91,8 @@ function useLocalBoolean(key: string, defaultValue: boolean) {
 export function AccountSettingsClient() {
   const { user, loading, signInDev, signOut } = useAuth()
   const { entitlements, loading: entitlementsLoading } = useEntitlements()
+
+  const [billingError, setBillingError] = React.useState<string | null>(null)
 
   const [devUserId, setDevUserId] = React.useState('dev_user_123')
   const [devEmail, setDevEmail] = React.useState('dev@off-season.io')
@@ -214,21 +228,51 @@ export function AccountSettingsClient() {
             hideHeading
           >
             <div className="rounded border border-brand-gray-200 bg-brand-gray-50 p-4 text-sm text-brand-gray-700">
-              Stripe billing portal will be connected once Stripe keys + webhook fulfillment are live.
+              {isSignedIn
+                ? 'Manage your subscription and payment method via Stripe.'
+                : 'Sign in to manage your subscription and payment method.'}
             </div>
+
+            {billingError ? (
+              <div className="rounded border border-brand-gray-200 bg-brand-gray-50 p-3 text-sm text-brand-black">
+                {billingError}
+              </div>
+            ) : null}
 
             <div className="flex flex-wrap items-center gap-3">
               <button
                 type="button"
-                disabled
-                className="rounded bg-brand-black px-3 py-2 text-xs font-[800] uppercase tracking-wide text-brand-white opacity-50"
+                disabled={!isSignedIn}
+                onClick={async () => {
+                  if (!isSignedIn) return
+                  setBillingError(null)
+                  try {
+                    await openStripeBillingPortal()
+                  } catch (err) {
+                    setBillingError(err instanceof Error ? err.message : 'Failed to open billing portal')
+                  }
+                }}
+                className={`rounded bg-brand-black px-3 py-2 text-xs font-[800] uppercase tracking-wide text-brand-white ${
+                  isSignedIn ? '' : 'opacity-50'
+                }`}
               >
                 Manage subscription
               </button>
               <button
                 type="button"
-                disabled
-                className="rounded border border-brand-gray-200 bg-brand-white px-3 py-2 text-xs font-[800] uppercase tracking-wide text-brand-black opacity-50"
+                disabled={!isSignedIn}
+                onClick={async () => {
+                  if (!isSignedIn) return
+                  setBillingError(null)
+                  try {
+                    await openStripeBillingPortal()
+                  } catch (err) {
+                    setBillingError(err instanceof Error ? err.message : 'Failed to open billing portal')
+                  }
+                }}
+                className={`rounded border border-brand-gray-200 bg-brand-white px-3 py-2 text-xs font-[800] uppercase tracking-wide text-brand-black ${
+                  isSignedIn ? '' : 'opacity-50'
+                }`}
               >
                 Update payment method
               </button>
@@ -250,7 +294,7 @@ export function AccountSettingsClient() {
           >
             <Field label="Sign-in method">
               <div className="rounded border border-brand-gray-200 bg-brand-gray-50 px-3 py-2 text-sm">
-                {isSignedIn ? user?.provider ?? '—' : '—'}
+                {isSignedIn ? formatProviderLabel(user?.provider) : '—'}
               </div>
             </Field>
 
@@ -453,8 +497,8 @@ export function AccountSettingsClient() {
               <div className="space-y-2">
                 <div className="text-xs font-[800] uppercase tracking-wide text-brand-gray-600">Not signed in</div>
                 <div className="text-sm text-brand-gray-700">Sign in to see entitlements and billing details.</div>
-                <Link href="/login" className="inline-flex text-sm font-[800] text-brand-red hover:text-brand-black">
-                  Go to Login
+                <Link href="/sign-in" className="inline-flex text-sm font-[800] text-brand-red hover:text-brand-black">
+                  Go to Sign In
                 </Link>
 
                 {process.env.NODE_ENV === 'development' ? (

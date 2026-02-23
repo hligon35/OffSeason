@@ -199,7 +199,7 @@ export function VideoStoreClient({ data }: { data: StoreData }) {
         </div>
       </section>
 
-      <VideoStoreEpisodesSection data={data} onPurchase={handlePurchase} />
+      <VideoStoreEpisodesSection data={data} seasonProductId="media_season1" />
 
       {/* ABOUT + SUPPORT */}
       <section id="about" className="rounded border border-brand-gray-200 bg-brand-white p-5 sm:p-6" aria-label="About">

@@ -1,6 +1,9 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
+import * as React from 'react'
+import { startStripeCheckout } from '@/lib/stripe/client'
 
 type StoreData = {
   pricing: {
@@ -8,8 +11,6 @@ type StoreData = {
       purchasePrice: number
       rentalPrice?: number
       currency: string
-      purchaseUrl: string
-      rentalUrl?: string
     }
     episode: {
       purchasePrice: number
@@ -26,24 +27,38 @@ type StoreData = {
     thumbnail: string
     description: string
     preview?: { label: string; vimeoOttEmbedUrl: string }
-    purchaseUrl: string
-    rentalUrl?: string
   }>
 }
 
 export function VideoStoreEpisodesSection({
   data,
-  onPurchase,
+  seasonProductId,
 }: {
   data: StoreData
-  onPurchase?: (payload: unknown) => void
+  seasonProductId: string
 }) {
+  const [checkoutError, setCheckoutError] = React.useState<string | null>(null)
   const currency = data.pricing.season.currency ?? 'USD'
-  const episodeBuyLabel = `Buy • ${formatMoney(data.pricing.episode.purchasePrice, currency)}`
+  const episodeCurrency = data.pricing.episode.currency ?? currency
 
-  function handlePurchase(payload: unknown) {
-    if (onPurchase) return onPurchase(payload)
-    console.log('[Purchase]', payload)
+  async function handleBuySeason() {
+    setCheckoutError(null)
+    try {
+      await startStripeCheckout(seasonProductId)
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : 'Failed to start checkout.'
+      setCheckoutError(msg)
+    }
+  }
+
+  async function handleBuyEpisode(episodeId: string) {
+    setCheckoutError(null)
+    try {
+      await startStripeCheckout(`media_${episodeId}`)
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : 'Failed to start checkout.'
+      setCheckoutError(msg)
+    }
   }
 
   return (
@@ -56,31 +71,30 @@ export function VideoStoreEpisodesSection({
         </div>
 
         <div className="flex w-full flex-wrap items-center justify-between gap-2 sm:w-auto sm:justify-end">
-          <div className="text-xs font-[800] uppercase tracking-wide text-brand-gray-600">
-            {formatMoney(data.pricing.season.purchasePrice, currency)} season
-          </div>
           <button
             type="button"
             className="inline-flex items-center justify-center rounded bg-brand-red px-4 py-2 text-xs font-[800] uppercase tracking-wide text-brand-white hover:bg-brand-white hover:text-brand-black"
-            onClick={() =>
-              handlePurchase({
-                scope: 'season',
-                id: 'season-1',
-                url: data.pricing.season.purchaseUrl,
-                price: data.pricing.season.purchasePrice,
-              })
-            }
+            onClick={handleBuySeason}
             aria-label="Buy Season One"
           >
-            Buy Season
+            Buy Season {formatMoney(data.pricing.season.purchasePrice, currency)}
           </button>
         </div>
+
+        {checkoutError ? (
+          <div className="mt-3 w-full rounded border border-brand-gray-200 bg-brand-gray-50 px-3 py-2 text-sm text-brand-gray-700" role="alert">
+            {checkoutError}
+          </div>
+        ) : null}
       </div>
 
-      <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+      <div className="mt-5 flex flex-col gap-4">
         {data.episodes.map((ep) => (
-          <article key={ep.id} className="overflow-hidden rounded border border-brand-gray-200 bg-brand-white">
-            <div className="relative aspect-[16/9] w-full bg-brand-black">
+          <article
+            key={ep.id}
+            className="flex w-full overflow-hidden rounded border border-brand-gray-200 bg-brand-white"
+          >
+            <div className="relative w-52 shrink-0 self-stretch bg-brand-black">
               {(() => {
                 const isLogoThumb = ep.thumbnail === '/offseasonlogo.png' || ep.thumbnail === '/offseasonlogo.jpg'
                 return (
@@ -88,31 +102,39 @@ export function VideoStoreEpisodesSection({
                     src={ep.thumbnail}
                     alt={`Episode ${ep.episodeNumber} thumbnail`}
                     fill
-                    sizes="(min-width: 1280px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    sizes="208px"
                     className={isLogoThumb ? 'object-contain p-8' : 'object-cover'}
                   />
                 )
               })()}
             </div>
-            <div className="p-4">
-              <div className="flex items-start justify-between gap-3">
-                <h3 className="text-sm font-[800]">
-                  Episode {ep.episodeNumber} • {ep.title}
+
+            <div className="flex min-w-0 flex-1 flex-col p-4">
+              <div className="flex min-w-0 items-start gap-2">
+                <h3 className="min-w-0 text-sm font-[800]">
+                  <Link
+                    href={`/media/season${ep.season}/${ep.id}`}
+                    className="block truncate hover:text-brand-red"
+                    aria-label={`View Episode ${ep.episodeNumber}: ${ep.title}`}
+                  >
+                    Episode {ep.episodeNumber} • {ep.title}
+                  </Link>
                 </h3>
                 <div className="shrink-0 rounded border border-brand-gray-200 bg-brand-white px-2 py-1 text-xs text-brand-gray-600">
                   {ep.runtime}
                 </div>
               </div>
+
               <p className="mt-2 text-sm text-brand-gray-700">{ep.description}</p>
 
-              <div className="mt-4 flex flex-wrap gap-2">
+              <div className="mt-auto flex items-end justify-end pt-4">
                 <button
                   type="button"
-                  className="inline-flex items-center justify-center rounded bg-brand-red px-4 py-2 text-xs font-[800] uppercase tracking-wide text-brand-white hover:bg-brand-white hover:text-brand-black"
-                  onClick={() => handlePurchase({ scope: 'episode', id: ep.id, url: ep.purchaseUrl })}
-                  aria-label={`Buy episode ${ep.episodeNumber}`}
+                  className="inline-flex items-center justify-center rounded bg-brand-red px-3 py-2 text-xs font-[800] uppercase tracking-wide text-brand-white hover:bg-brand-white hover:text-brand-black"
+                  onClick={() => handleBuyEpisode(ep.id)}
+                  aria-label={`Buy Episode ${ep.episodeNumber}`}
                 >
-                  {episodeBuyLabel}
+                  Buy {formatMoney(data.pricing.episode.purchasePrice, episodeCurrency)}
                 </button>
               </div>
             </div>

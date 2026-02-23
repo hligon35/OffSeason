@@ -13,7 +13,6 @@ const primaryNav = [
   { label: 'The Show', href: '/the-show' },
   { label: 'The Podcast', href: '/podcast' },
   { label: 'Forums', href: '/forums' },
-  { label: 'Store', href: '/store' },
 ] as const
 
 export function Header() {
