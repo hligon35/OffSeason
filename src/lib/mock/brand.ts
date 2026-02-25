@@ -1,7 +1,7 @@
 export const brandCopy = {
   name: 'Off Season',
   tagline: 'Beyond The Pylons',
-  about: `Off Season is a sports-culture institution built around the months most people never see.
+  about: `Off Season is a premium athlete-led media brand that documents how elite performers train, recover, and build between seasons — because in a world of instant gratification, the off season is what separates the average from the great.
 
 The season is the headline. The offseason is the story — training blocks, rehab rooms, family routines, and the meetings where contracts and careers take shape. We document it with a cinematic eye and a deliberate pace: behavior over slogans, context over hype.
 
