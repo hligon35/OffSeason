@@ -9,9 +9,9 @@ import { getUserAvatarFallbackLetter, getUserAvatarUrl, getUserFirstInitialAndLa
 import { searchMockEpisodesAndClips } from '@/lib/search/mockSearch'
 
 const primaryNav = [
-  { label: 'Home', href: '/' },
-  { label: 'The Show', href: '/the-show' },
-  { label: 'Podcast', href: '/podcast' },
+  { label: 'The Brand', href: '/' },
+  { label: 'Off Season TV', href: '/the-show' },
+  { label: 'Off Season Talk', href: '/podcast' },
   { label: 'Forums', href: '/forums' },
 ] as const
 

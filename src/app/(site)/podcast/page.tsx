@@ -2,18 +2,18 @@ import Image from 'next/image'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Podcast',
-  description: 'The Off Season Podcast—news, conversations, and culture. Join the list for launch updates.',
-  keywords: ['Off Season podcast', 'sports podcast', 'sports culture podcast', 'athlete conversations'],
+  title: 'Off Season Talk',
+  description: 'Off Season Talk—news, conversations, and culture. Join the list for launch updates.',
+  keywords: ['Off Season Talk', 'sports podcast', 'sports culture podcast', 'athlete conversations'],
   alternates: { canonical: '/podcast' },
   openGraph: {
-    title: 'Podcast | Off Season',
+    title: 'Off Season Talk | Off Season',
     description: 'News, conversations, and culture. Join the list for launch updates.',
     url: '/podcast',
     images: [{ url: '/The Podcast.png' }],
   },
   twitter: {
-    title: 'Podcast | Off Season',
+    title: 'Off Season Talk | Off Season',
     description: 'News, conversations, and culture. Join the list for launch updates.',
     images: ['/The Podcast.png'],
   },
@@ -22,12 +22,12 @@ export const metadata: Metadata = {
 export default function PodcastPage() {
   return (
     <div className="space-y-6">
-      <h1 className="sr-only">Off Season Podcast</h1>
+      <h1 className="sr-only">Off Season Talk</h1>
       <section className="overflow-hidden rounded border border-brand-gray-200 bg-brand-black">
         <div className="relative aspect-[16/9] w-full">
           <Image
             src="/The Podcast.png"
-            alt="Off Season Podcast"
+            alt="Off Season Talk"
             fill
             sizes="(min-width: 1024px) 1280px, 100vw"
             className="object-contain"
@@ -37,7 +37,7 @@ export default function PodcastPage() {
       </section>
 
       <section className="rounded border border-brand-gray-200 bg-brand-white p-5 sm:p-6">
-        <div className="text-xs font-[800] uppercase tracking-wide text-brand-gray-600">Podcast</div>
+        <div className="text-xs font-[800] uppercase tracking-wide text-brand-gray-600">Off Season Talk</div>
         <p className="mt-3 max-w-2xl text-sm text-brand-gray-700 sm:text-base">
           The podcast is in the edit. Join the list and we’ll signal when it drops.
         </p>

@@ -12,10 +12,10 @@ export function BrandHero() {
 
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <CTAButton href="/the-show" variant="primary">
-              Watch the show
+              Watch Off Season TV
             </CTAButton>
             <CTAButton href="/podcast" variant="outline" className="border-brand-white/20 bg-transparent text-brand-white hover:bg-brand-white hover:text-brand-black">
-              Podcast
+              Off Season Talk
             </CTAButton>
           </div>
 

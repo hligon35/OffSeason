@@ -8,18 +8,18 @@ import storeData from '@/lib/storefront/storeData.json'
 import { VideoStoreEpisodesSection } from '@/components/storefront/VideoStoreEpisodesSection'
 
 export const metadata: Metadata = {
-  title: 'The Show',
+  title: 'Off Season TV',
   description: 'Watch Off Season TV: full episodes, cast features, and behind-the-scenes clips from Season One.',
   keywords: ['Off Season TV', 'full episodes', 'sports series', 'behind the scenes', 'Season One'],
   alternates: { canonical: '/the-show' },
   openGraph: {
-    title: 'The Show | Off Season',
+    title: 'Off Season TV | Off Season',
     description: 'Full episodes, cast features, and behind-the-scenes clips from Season One.',
     url: '/the-show',
     images: [{ url: '/offseasonlogo.png' }],
   },
   twitter: {
-    title: 'The Show | Off Season',
+    title: 'Off Season TV | Off Season',
     description: 'Full episodes, cast features, and behind-the-scenes clips from Season One.',
     images: ['/offseasonlogo.png'],
   },

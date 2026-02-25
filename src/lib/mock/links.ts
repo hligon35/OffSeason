@@ -2,9 +2,9 @@ export const footerColumns: Array<{ title: string; links: Array<{ label: string;
   {
     title: 'Off Season',
     links: [
-      { label: 'Home', href: '/' },
-      { label: 'The Show', href: '/the-show' },
-      { label: 'Podcast', href: '/podcast' },
+      { label: 'The Brand', href: '/' },
+      { label: 'Off Season TV', href: '/the-show' },
+      { label: 'Off Season Talk', href: '/podcast' },
       { label: 'Forums', href: '/forums' },
       { label: 'Merch', href: '/merch' },
     ],
