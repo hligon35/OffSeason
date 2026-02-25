@@ -11,12 +11,12 @@ import { openStripeBillingPortal } from '@/lib/stripe/client'
 type SectionId = 'overview' | 'library' | 'billing' | 'security' | 'notifications' | 'support'
 
 const sections: Array<{ id: SectionId; label: string; description: string }> = [
-  { id: 'overview', label: 'Overview', description: 'Profile and membership details.' },
-  { id: 'library', label: 'Library', description: 'Your unlocked content and purchases.' },
-  { id: 'billing', label: 'Billing', description: 'Subscription and payment settings.' },
-  { id: 'security', label: 'Security', description: 'Sign-in methods and sessions.' },
-  { id: 'notifications', label: 'Notifications', description: 'Email preferences.' },
-  { id: 'support', label: 'Support', description: 'Help, policies, and account help.' },
+  { id: 'overview', label: 'Overview', description: 'Profile and membership snapshot.' },
+  { id: 'library', label: 'Library', description: 'Your access and purchases.' },
+  { id: 'billing', label: 'Billing', description: 'Membership and payment.' },
+  { id: 'security', label: 'Security', description: 'Sign-in and account controls.' },
+  { id: 'notifications', label: 'Notifications', description: 'Release and email preferences.' },
+  { id: 'support', label: 'Support', description: 'Help and policies.' },
 ]
 
 function formatProviderLabel(provider: string | null | undefined): string {
@@ -26,7 +26,7 @@ function formatProviderLabel(provider: string | null | undefined): string {
   if (p === 'apple' || p === 'apple.com') return 'Apple'
   if (p === 'password') return 'Email/Password'
   if (p === 'dev') return 'Dev'
-  if (p === 'firebase') return 'Firebase'
+  if (p === 'firebase') return 'Email'
   return provider ?? '—'
 }
 
@@ -111,7 +111,7 @@ export function AccountSettingsClient() {
           <SettingCard
             id="overview"
             title="Overview"
-            subtitle="Basic profile details and current membership status."
+            subtitle="Profile details and current status."
             hideHeading
           >
             <div className="rounded border border-brand-gray-200 bg-brand-gray-50 p-4">
@@ -161,11 +161,11 @@ export function AccountSettingsClient() {
                   'Loading…'
                 ) : allAccess ? (
                   <span>
-                    <span className="font-[800]">All-Access</span> subscription active.
+                    <span className="font-[800]">All-Access</span> active.
                   </span>
                 ) : (
                   <span>
-                    <span className="font-[800]">Free</span> — subscribe to unlock all seasons.
+                    <span className="font-[800]">Free</span> — subscribe to unlock the full season library.
                   </span>
                 )}
               </div>
@@ -178,13 +178,13 @@ export function AccountSettingsClient() {
           <SettingCard
             id="library"
             title="Library"
-            subtitle="Your entitlements and order history will appear here."
+            subtitle="Your access and purchases live here."
             hideHeading
           >
             <Field label="Entitlements">
               <div className="rounded border border-brand-gray-200 bg-brand-gray-50 p-4 text-sm">
                 {loading ? (
-                  'Sign in to load entitlements.'
+                  'Sign in to see your access.'
                 ) : entitlementsLoading ? (
                   'Loading…'
                 ) : entitlements.length ? (
@@ -197,7 +197,7 @@ export function AccountSettingsClient() {
                     ))}
                   </ul>
                 ) : (
-                  'None yet.'
+                  'No access yet.'
                 )}
               </div>
             </Field>
@@ -207,13 +207,13 @@ export function AccountSettingsClient() {
                 href="/media"
                 className="rounded bg-brand-black px-3 py-2 text-xs font-[800] uppercase tracking-wide text-brand-white"
               >
-                Browse Media
+                Browse media
               </Link>
               <Link
                 href="/checkout/success"
                 className="rounded border border-brand-gray-200 bg-brand-white px-3 py-2 text-xs font-[800] uppercase tracking-wide text-brand-black"
               >
-                View Checkout Success
+                View purchase confirmation
               </Link>
             </div>
           </SettingCard>
@@ -224,13 +224,13 @@ export function AccountSettingsClient() {
           <SettingCard
             id="billing"
             title="Billing"
-            subtitle="Manage your subscription and payment method (Stripe)."
+            subtitle="Manage your membership and payment method."
             hideHeading
           >
             <div className="rounded border border-brand-gray-200 bg-brand-gray-50 p-4 text-sm text-brand-gray-700">
               {isSignedIn
-                ? 'Manage your subscription and payment method via Stripe.'
-                : 'Sign in to manage your subscription and payment method.'}
+                ? 'Manage your membership and payment method.'
+                : 'Sign in to manage billing.'}
             </div>
 
             {billingError ? (
@@ -249,14 +249,14 @@ export function AccountSettingsClient() {
                   try {
                     await openStripeBillingPortal()
                   } catch (err) {
-                    setBillingError(err instanceof Error ? err.message : 'Failed to open billing portal')
+                    setBillingError(err instanceof Error ? err.message : 'Couldn’t open billing.')
                   }
                 }}
                 className={`rounded bg-brand-black px-3 py-2 text-xs font-[800] uppercase tracking-wide text-brand-white ${
                   isSignedIn ? '' : 'opacity-50'
                 }`}
               >
-                Manage subscription
+                Manage billing
               </button>
               <button
                 type="button"
@@ -267,19 +267,19 @@ export function AccountSettingsClient() {
                   try {
                     await openStripeBillingPortal()
                   } catch (err) {
-                    setBillingError(err instanceof Error ? err.message : 'Failed to open billing portal')
+                    setBillingError(err instanceof Error ? err.message : 'Couldn’t open billing.')
                   }
                 }}
                 className={`rounded border border-brand-gray-200 bg-brand-white px-3 py-2 text-xs font-[800] uppercase tracking-wide text-brand-black ${
                   isSignedIn ? '' : 'opacity-50'
                 }`}
               >
-                Update payment method
+                Update payment
               </button>
             </div>
 
             <div className="text-xs text-brand-gray-600">
-              Note: this project uses Stripe Checkout + webhooks (and Stripe Connect) for fulfillment.
+              Billing is handled through our payment provider.
             </div>
           </SettingCard>
         )
@@ -320,7 +320,7 @@ export function AccountSettingsClient() {
             </div>
 
             <div className="text-xs text-brand-gray-600">
-              Account deletion will be implemented once Firebase Auth + Firestore user records are connected.
+              Account deletion isn’t available yet.
             </div>
           </SettingCard>
         )
@@ -343,7 +343,7 @@ export function AccountSettingsClient() {
                 />
                 <span className="text-sm text-brand-gray-700">
                   <span className="font-[800] text-brand-black">New episodes</span>
-                  <span className="block text-xs text-brand-gray-600">Get notified when new episodes drop.</span>
+                  <span className="block text-xs text-brand-gray-600">Get a note when a new episode drops.</span>
                 </span>
               </label>
 
@@ -375,7 +375,7 @@ export function AccountSettingsClient() {
             </div>
 
             <div className="text-xs text-brand-gray-600">
-              Preferences are stored locally for now (until user profiles are persisted).
+              Preferences are saved on this device for now.
             </div>
           </SettingCard>
         )
@@ -401,17 +401,17 @@ export function AccountSettingsClient() {
                 href="/forums"
                 className="rounded border border-brand-gray-200 bg-brand-white px-3 py-2 text-xs font-[800] uppercase tracking-wide text-brand-black hover:border-brand-red"
               >
-                Visit Forums
+                Visit forums
               </Link>
               <Link
                 href="/"
                 className="rounded bg-brand-black px-3 py-2 text-xs font-[800] uppercase tracking-wide text-brand-white"
               >
-                Back to Home
+                Back to home
               </Link>
             </div>
 
-            <div className="text-xs text-brand-gray-600">Terms/Privacy pages can be added when legal copy is ready.</div>
+            <div className="text-xs text-brand-gray-600">Terms and Privacy will post here.</div>
           </SettingCard>
         )
 
@@ -426,7 +426,7 @@ export function AccountSettingsClient() {
         <div className="text-xs font-[800] uppercase tracking-wide text-brand-gray-600">Account</div>
         <h1 className="mt-1 text-3xl font-[800] tracking-tightish sm:text-4xl">Settings</h1>
         <p className="mt-3 max-w-2xl text-sm text-brand-gray-700 sm:text-base">
-          Manage your profile, subscription, and preferences.
+          Manage your profile, membership, and preferences.
         </p>
 
         <div className="mt-5 flex flex-wrap items-center gap-3">
@@ -434,13 +434,13 @@ export function AccountSettingsClient() {
             href="/media"
             className="rounded bg-brand-black px-3 py-2 text-xs font-[800] uppercase tracking-wide text-brand-white"
           >
-            Browse Media
+            Browse media
           </Link>
           <Link
             href="/merch"
             className="rounded border border-brand-gray-200 bg-brand-white px-3 py-2 text-xs font-[800] uppercase tracking-wide text-brand-black"
           >
-            Browse Merch
+            Browse merch
           </Link>
         </div>
       </div>
@@ -496,9 +496,9 @@ export function AccountSettingsClient() {
             ) : (
               <div className="space-y-2">
                 <div className="text-xs font-[800] uppercase tracking-wide text-brand-gray-600">Not signed in</div>
-                <div className="text-sm text-brand-gray-700">Sign in to see entitlements and billing details.</div>
+                <div className="text-sm text-brand-gray-700">Sign in to see access and billing.</div>
                 <Link href="/sign-in" className="inline-flex text-sm font-[800] text-brand-red hover:text-brand-black">
-                  Go to Sign In
+                  Go to sign in
                 </Link>
 
                 {process.env.NODE_ENV === 'development' ? (

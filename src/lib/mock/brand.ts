@@ -1,21 +1,19 @@
 export const brandCopy = {
   name: 'Off Season',
   tagline: 'Beyond The Pylons',
-  about: `Off Season is where the real stories in sports begin—long before the lights come on and long after the headlines fade.
+  about: `Off Season is a sports-culture institution built around the months most people never see.
 
-This is the space where athletes rebuild, reinvent, negotiate, recover, and prepare for the next chapter. While most fans only see the season, we focus on the months that actually shape greatness. Off Season was born from a simple truth: the work that defines an athlete doesn’t happen on game day. It happens in the quiet grind of July training camps, in the strategy rooms where careers are planned, in the personal moments where confidence is rebuilt, and in the business decisions that determine an athlete’s future. We capture that world with raw access, real conversations, and a lens that goes deeper than stats or highlights—revealing the mindset, the money moves, the sacrifices, and the evolution that turn potential into legacy.
+The season is the headline. The offseason is the story — training blocks, rehab rooms, family routines, and the meetings where contracts and careers take shape. We document it with a cinematic eye and a deliberate pace: behavior over slogans, context over hype.
 
-Where the work happens.
-Where the stories live.
-This is the Off Season.`,
+Each season releases in weekly episodes and resolves as a premium film. The Standard stays the same every year: Body. Mind. Ownership.`,
 } as const
 
 export const showCopy = {
   title: 'The Show',
   headline: 'Off Season: Beyond The Pylons',
   description:
-    'Exploring the authentic stories of elite athletes during their OFFSEASON',
-  ctaLabel: 'See episodes',
+    'A weekly series tracking the NFL offseason — training, recovery, business, and the quiet decisions that shape a season.',
+  ctaLabel: 'Watch episodes',
   ctaHref: '/the-show#episodes',
 } as const
 
@@ -23,8 +21,8 @@ export const podcastCopy = {
   title: 'The Podcast',
   headline: 'Off Season Podcast',
   description:
-    'A longer-form version of the chaos. Recaps, interviews, and deep dives — designed for commutes, workouts, and late-night “one more segment.”',
-  ctaLabel: 'Listen to full episodes',
+    'Long-form conversations and close reads: recaps, interviews, and the context that doesn’t fit in a clip.',
+  ctaLabel: 'Listen',
   ctaHref: '/podcast',
 } as const
 
@@ -40,12 +38,12 @@ export const podcastHosts = [
   {
     name: 'Coach V',
     role: 'Host',
-    bio: 'Guides the room, calls the audibles, and keeps the takes spicy but grounded.',
+    bio: 'Sets the pace, keeps the room honest, and lets the moment speak before the take does.',
   },
   {
     name: 'Jules',
     role: 'Co-host',
-    bio: 'Cuts through the noise with the cleanest breakdowns and the sharpest one-liners.',
+    bio: 'Cuts through the noise with clean breakdowns and a steady point of view.',
   },
 ] as const
 

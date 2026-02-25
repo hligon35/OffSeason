@@ -39,8 +39,7 @@ export default function PodcastPage() {
       <section className="rounded border border-brand-gray-200 bg-brand-white p-5 sm:p-6">
         <div className="text-xs font-[800] uppercase tracking-wide text-brand-gray-600">Podcast</div>
         <p className="mt-3 max-w-2xl text-sm text-brand-gray-700 sm:text-base">
-          We’re putting the finishing touches on the podcast experience. Join the newsletter and we’ll let you know when
-          it’s live.
+          The podcast is in the edit. Join the list and we’ll signal when it drops.
         </p>
 
         <form className="mt-5 flex flex-col gap-2 sm:flex-row sm:items-center">
@@ -49,18 +48,18 @@ export default function PodcastPage() {
             aria-label="Email address"
             autoComplete="email"
             inputMode="email"
-            placeholder="you@domain.com"
+            placeholder="you@example.com"
             className="w-full rounded border border-brand-gray-200 bg-brand-white px-3 py-2 text-sm text-brand-black outline-none placeholder:text-brand-gray-400 focus:border-brand-red"
           />
           <button
             type="button"
             className="shrink-0 rounded bg-brand-red px-4 py-2 text-xs font-[800] uppercase tracking-wide text-brand-white hover:bg-brand-white hover:text-brand-black"
           >
-            Join Newsletter
+            Join the list
           </button>
         </form>
 
-        <div className="mt-2 text-xs text-brand-gray-600">No spam. Just updates.</div>
+        <div className="mt-2 text-xs text-brand-gray-600">No noise. Just release notes.</div>
       </section>
 
       {/*

@@ -65,13 +65,13 @@ export function VideoStoreClient({ data }: { data: StoreData }) {
   const currency = data.pricing.season.currency ?? 'USD'
 
   const seasonBuyLabel = useMemo(
-    () => `Buy Season • ${formatMoney(data.pricing.season.purchasePrice, currency)}`,
+    () => `Buy season • ${formatMoney(data.pricing.season.purchasePrice, currency)}`,
     [currency, data.pricing.season.purchasePrice]
   )
 
   const seasonRentLabel = useMemo(() => {
     if (data.pricing.season.rentalPrice == null) return null
-    return `Rent Season • ${formatMoney(data.pricing.season.rentalPrice, currency)}`
+    return `Rent season • ${formatMoney(data.pricing.season.rentalPrice, currency)}`
   }, [currency, data.pricing.season.rentalPrice])
 
   useEffect(() => {
@@ -175,7 +175,7 @@ export function VideoStoreClient({ data }: { data: StoreData }) {
               })}
               className="inline-flex items-center justify-center rounded bg-brand-white px-4 py-2 text-xs font-[800] uppercase tracking-wide text-brand-black hover:bg-brand-gray-100"
             >
-              Watch Trailer
+              Watch trailer
             </button>
 
             <button
@@ -188,7 +188,7 @@ export function VideoStoreClient({ data }: { data: StoreData }) {
               })}
               className="inline-flex items-center justify-center rounded bg-brand-red px-4 py-2 text-xs font-[800] uppercase tracking-wide text-brand-white hover:bg-brand-white hover:text-brand-black"
             >
-              Buy Season
+              Buy season
             </button>
           </div>
 
@@ -205,15 +205,14 @@ export function VideoStoreClient({ data }: { data: StoreData }) {
       <section id="about" className="rounded border border-brand-gray-200 bg-brand-white p-5 sm:p-6" aria-label="About">
         <div className="text-xs font-[800] uppercase tracking-wide text-brand-gray-600">About</div>
         <p className="mt-3 max-w-3xl text-sm text-brand-gray-700">
-          This page is ready for Vimeo OTT integration. Swap placeholder embed URLs and purchase URLs in
-          <span className="font-[800]"> src/lib/storefront/storeData.json</span>, then replace the placeholder handlers
-          with real purchase + entitlement checks.
+          Season One lives here: full episodes, selected cuts, and the trailer. Weekly releases build toward the premium
+          film — same Standard throughout: Body, Mind, Ownership.
         </p>
       </section>
 
       <section id="support" className="rounded border border-brand-gray-200 bg-brand-white p-5 sm:p-6" aria-label="Support">
         <div className="text-xs font-[800] uppercase tracking-wide text-brand-gray-600">Support</div>
-        <p className="mt-3 text-sm text-brand-gray-700">Replace this with your support email/FAQ links.</p>
+        <p className="mt-3 text-sm text-brand-gray-700">For access, billing, or playback, visit Account → Support.</p>
       </section>
 
       {/* PLAYER MODAL */}

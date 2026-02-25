@@ -26,18 +26,18 @@ export function FeaturedRow({
               {ctaLabel}
             </CTAButton>
             <Link href={ctaHref} className="text-xs font-[800] uppercase tracking-wide text-brand-gray-700 hover:text-brand-red">
-              Learn more
+              Details
             </Link>
           </div>
         </div>
 
         <div className="border-t border-brand-gray-200 p-5 lg:border-l lg:border-t-0">
           <div className="rounded border border-brand-gray-200 bg-brand-gray-50 p-4">
-            <div className="text-xs font-[800] uppercase tracking-wide text-brand-black">What you get</div>
+            <div className="text-xs font-[800] uppercase tracking-wide text-brand-black">What’s inside</div>
             <ul className="mt-3 space-y-2 text-sm text-brand-gray-700">
-              <li>• Weekly drops and rapid reactions</li>
-              <li>• Personality-first segments</li>
-              <li>• Clips, episodes, and topic verticals</li>
+              <li>• Weekly episode drops</li>
+              <li>• Personality-led segments</li>
+              <li>• Episodes, clips, and topic verticals</li>
             </ul>
           </div>
         </div>

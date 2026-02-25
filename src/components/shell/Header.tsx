@@ -11,7 +11,7 @@ import { searchMockEpisodesAndClips } from '@/lib/search/mockSearch'
 const primaryNav = [
   { label: 'Home', href: '/' },
   { label: 'The Show', href: '/the-show' },
-  { label: 'The Podcast', href: '/podcast' },
+  { label: 'Podcast', href: '/podcast' },
   { label: 'Forums', href: '/forums' },
 ] as const
 
@@ -107,7 +107,7 @@ export function Header() {
                   ref={searchInputRef}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search episodes & clips"
+                  placeholder="Search episodes and clips"
                   className="h-9 w-[240px] rounded border border-brand-gray-800 bg-brand-black px-3 text-sm text-brand-white outline-none placeholder:text-brand-white/60 focus:border-brand-red"
                   aria-label="Search episodes and clips"
                 />
@@ -131,7 +131,7 @@ export function Header() {
                         ))}
                       </div>
                     ) : (
-                      <div className="px-3 py-3 text-sm text-brand-white/80">No results.</div>
+                      <div className="px-3 py-3 text-sm text-brand-white/80">No matches.</div>
                     )}
                   </div>
                 ) : null}
@@ -157,7 +157,7 @@ export function Header() {
               className="inline-flex items-center gap-2 rounded border border-brand-gray-800 px-3 py-2 text-xs font-[800] uppercase tracking-wide hover:border-brand-red"
             >
               <UserIcon className="h-4 w-4" />
-              <span>Sign In</span>
+              <span>Sign in</span>
             </Link>
           ) : (
             (() => {

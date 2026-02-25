@@ -30,7 +30,7 @@ export default function MerchProductPage() {
         <div className="rounded border border-brand-gray-200 bg-brand-white p-5">
           <div className="text-xs font-[800] uppercase tracking-wide text-brand-gray-600">Product</div>
           <h1 className="mt-1 text-2xl font-[800] tracking-tightish">{productId}</h1>
-          <p className="mt-2 text-sm text-brand-gray-700">Physical orders will be recorded in Firestore.</p>
+          <p className="mt-2 text-sm text-brand-gray-700">Physical item. Shipping details are provided at checkout.</p>
 
           <div className="mt-5 flex flex-wrap items-center gap-3">
             <button

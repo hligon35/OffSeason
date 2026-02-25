@@ -52,15 +52,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      <AboutSection title="A brand-first media company" body={brandCopy.about} />
+      <AboutSection title="A sports-culture institution" body={brandCopy.about} />
 
       <EpisodeList title="Latest episodes" items={latestEpisodes} viewAllHref="/the-show#episodes" />
 
       <section className="rounded border border-brand-gray-200 bg-brand-black p-6 text-brand-white">
         <div className="text-xs font-[800] uppercase tracking-wide text-brand-white/80">Social</div>
-        <h2 className="mt-1 text-2xl font-[800] tracking-tightish">Follow the brand</h2>
+        <h2 className="mt-1 text-2xl font-[800] tracking-tightish">Follow the work</h2>
         <p className="mt-2 max-w-2xl text-sm text-brand-white/75">
-          Clips, updates, and behind-the-scenes moments — wherever you scroll.
+          Clips, context, and the moments between episodes — wherever you scroll.
         </p>
 
         <div className="mt-4 flex flex-wrap items-center gap-3">
@@ -79,10 +79,10 @@ export default function HomePage() {
 
         <div className="mt-5 flex flex-wrap items-center gap-3">
           <CTAButton href="/the-show#episodes" variant="primary">
-            Browse episodes
+            Watch episodes
           </CTAButton>
           <CTAButton href="/the-show#clips" variant="outline" className="border-brand-white/20 bg-transparent text-brand-white hover:bg-brand-white hover:text-brand-black">
-            Browse clips
+            Watch clips
           </CTAButton>
         </div>
       </section>

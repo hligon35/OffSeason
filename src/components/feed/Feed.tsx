@@ -49,7 +49,7 @@ export function Feed({ scope }: { scope: 'home' | 'episodes' | 'clips' | 'person
       <div ref={sentinelRef} className="h-10" />
 
       <div className="py-4 text-center text-xs font-[800] uppercase tracking-wide text-brand-gray-500">
-        {loading ? 'Loading more...' : 'Keep scrolling'}
+        {loading ? 'Loading more…' : 'More below'}
       </div>
     </div>
   )

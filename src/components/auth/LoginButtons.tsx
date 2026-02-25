@@ -12,7 +12,7 @@ export function LoginButtons() {
     try {
       await signInWithGoogle()
     } catch (err) {
-      const msg = err instanceof Error ? err.message : 'Sign-in failed'
+      const msg = err instanceof Error ? err.message : 'Sign-in didn’t work.'
       setError(msg)
     }
   }
@@ -22,7 +22,7 @@ export function LoginButtons() {
     try {
       await signInWithApple()
     } catch (err) {
-      const msg = err instanceof Error ? err.message : 'Sign-in failed'
+      const msg = err instanceof Error ? err.message : 'Sign-in didn’t work.'
       setError(msg)
     }
   }
@@ -49,14 +49,13 @@ export function LoginButtons() {
         <div className="rounded border border-brand-gray-200 bg-brand-gray-50 p-3 text-sm text-brand-black">
           {error}
           <div className="mt-2 text-xs text-brand-gray-600">
-            Common causes: missing <span className="font-[800]">NEXT_PUBLIC_FIREBASE_*</span> env vars (file must be named{' '}
-            <span className="font-[800]">.env.local</span>), provider not enabled in Firebase Auth, or popup blocked.
+            Common causes: a blocked popup, disabled cookies, or a network interruption.
           </div>
         </div>
       ) : null}
 
       <div className="pt-2 text-xs text-brand-gray-600">
-        Uses Firebase Auth. If sign-in fails, verify <span className="font-[800]">NEXT_PUBLIC_FIREBASE_*</span> vars are set in Vercel and the provider is enabled in Firebase Console.
+        If sign-in doesn’t open a window, allow popups and try again.
       </div>
     </div>
   )

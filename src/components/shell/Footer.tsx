@@ -32,21 +32,21 @@ export function Footer() {
 
           <div className="min-w-0 rounded border border-brand-gray-800 bg-brand-black p-5">
             <div className="text-xs font-[800] uppercase tracking-wide text-brand-white/90">Newsletter</div>
-            <div className="mt-2 text-sm text-brand-white/75">Get the loudest segments and cleanest clips, first.</div>
+            <div className="mt-2 text-sm text-brand-white/75">Get the drops and the cleanest cuts, first.</div>
             <form className="mt-4 flex flex-col gap-2 sm:flex-row sm:items-center">
               <input
                 type="email"
                 aria-label="Email address"
                 autoComplete="email"
                 inputMode="email"
-                placeholder="you@domain.com"
+                placeholder="you@example.com"
                 className="w-full rounded border border-brand-gray-800 bg-brand-black px-3 py-2 text-sm text-brand-white outline-none placeholder:text-brand-white/40 focus:border-brand-red"
               />
               <button
                 type="button"
                 className="shrink-0 rounded bg-brand-red px-3 py-2 text-xs font-[800] uppercase tracking-wide text-brand-white hover:bg-brand-white hover:text-brand-black"
               >
-                Sign Up
+                Join
               </button>
             </form>
             <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -66,7 +66,7 @@ export function Footer() {
         </div>
 
         <div className="mt-10 border-t border-brand-gray-800 pt-6 text-xs text-brand-white/60">
-          © {new Date().getFullYear()} Off Season. All takes reserved.
+          © {new Date().getFullYear()} Off Season. All rights reserved.
         </div>
       </div>
     </footer>

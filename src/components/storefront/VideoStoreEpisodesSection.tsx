@@ -51,7 +51,7 @@ export function VideoStoreEpisodesSection({
     try {
       await startStripeCheckout(seasonProductId)
     } catch (err) {
-      const msg = err instanceof Error ? err.message : 'Failed to start checkout.'
+      const msg = err instanceof Error ? err.message : 'Couldn’t start checkout.'
       setCheckoutError(msg)
     }
   }
@@ -61,13 +61,26 @@ export function VideoStoreEpisodesSection({
     try {
       await startStripeCheckout(`media_${episodeId}`)
     } catch (err) {
-      const msg = err instanceof Error ? err.message : 'Failed to start checkout.'
+      const msg = err instanceof Error ? err.message : 'Couldn’t start checkout.'
       setCheckoutError(msg)
     }
   }
 
   return (
-    <section id="episodes" className="rounded border border-brand-gray-200 bg-brand-white p-5 sm:p-6" aria-label="Episodes">
+    <section
+      id="episodes"
+      className="relative rounded border border-brand-gray-200 bg-brand-white p-5 sm:p-6"
+      aria-label="Episodes"
+    >
+      {checkoutError ? (
+        <div
+          className="absolute left-1/2 top-3 z-10 w-full max-w-lg -translate-x-1/2 rounded border border-brand-gray-200 bg-brand-gray-50 px-3 py-2 text-center text-sm text-brand-gray-700"
+          role="alert"
+        >
+          {checkoutError}
+        </div>
+      ) : null}
+
       <div className="flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-end">
         <div>
           <div className="text-xs font-[800] uppercase tracking-wide text-brand-gray-600">Episodes</div>
@@ -82,15 +95,9 @@ export function VideoStoreEpisodesSection({
             onClick={handleBuySeason}
             aria-label="Buy Season One"
           >
-            Buy Season {formatMoney(data.pricing.season.purchasePrice, currency)}
+            Buy season {formatMoney(data.pricing.season.purchasePrice, currency)}
           </button>
         </div>
-
-        {checkoutError ? (
-          <div className="mt-3 w-full rounded border border-brand-gray-200 bg-brand-gray-50 px-3 py-2 text-sm text-brand-gray-700" role="alert">
-            {checkoutError}
-          </div>
-        ) : null}
       </div>
 
       <div className="mt-5 flex flex-col gap-4">
@@ -138,7 +145,7 @@ export function VideoStoreEpisodesSection({
                   onClick={() => handleBuyEpisode(ep.id)}
                   aria-label={`Buy Episode ${ep.episodeNumber}`}
                 >
-                  Buy {formatMoney(data.pricing.episode.purchasePrice, episodeCurrency)}
+                  Buy episode {formatMoney(data.pricing.episode.purchasePrice, episodeCurrency)}
                 </button>
               </div>
 

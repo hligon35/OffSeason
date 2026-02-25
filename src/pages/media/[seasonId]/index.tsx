@@ -31,7 +31,7 @@ export default function SeasonPage() {
         <div className="rounded border border-brand-gray-200 bg-brand-white p-5">
           <div className="text-xs font-[800] uppercase tracking-wide text-brand-gray-600">Season</div>
           <h1 className="mt-1 text-2xl font-[800] tracking-tightish">{seasonId}</h1>
-          <p className="mt-2 text-sm text-brand-gray-700">Episode list will live here—real drops will land here.</p>
+          <p className="mt-2 text-sm text-brand-gray-700">Episodes post here as they release.</p>
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">

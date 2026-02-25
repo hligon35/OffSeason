@@ -86,10 +86,10 @@ export default function EpisodePage({
               href="/the-show#episodes"
               className="rounded bg-brand-red px-3 py-2 text-xs font-[800] uppercase tracking-wide text-brand-white"
             >
-              Get access on The Show
+              Get access
             </Link>
             <Link href="/account" className="text-sm text-brand-gray-700 hover:text-brand-red">
-              Account
+              Go to account
             </Link>
           </div>
         </div>

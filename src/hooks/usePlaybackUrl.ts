@@ -13,7 +13,7 @@ export function usePlaybackUrl(episodeId: string | null, productIds: string[] | 
   const load = React.useCallback(async () => {
     if (!episodeId || !productIds || productIds.length === 0) return
     if (!user) {
-      setError('Sign in to load playback')
+      setError('Sign in to watch.')
       return
     }
     setLoading(true)
@@ -35,7 +35,7 @@ export function usePlaybackUrl(episodeId: string | null, productIds: string[] | 
       const data = (await authedRes.json()) as { url: string }
       setUrl(data.url)
     } catch (e) {
-      setError(e instanceof Error ? e.message : 'Failed to load playback url')
+      setError(e instanceof Error ? e.message : 'Couldn’t load playback.')
     } finally {
       setLoading(false)
     }

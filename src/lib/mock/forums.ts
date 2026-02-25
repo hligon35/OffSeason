@@ -36,18 +36,18 @@ export const forumCategories: ForumCategory[] = [
   {
     id: 'announcements',
     title: 'Announcements',
-    description: 'Drops, updates, and what’s new on Off Season.',
+    description: 'Drops, notes, and what’s new inside Off Season.',
     threads: [
       {
         id: 'welcome',
-        title: 'Welcome to the Forums',
+        title: 'Welcome to the forums',
         author: 'Off Season Team',
         replies: 12,
         lastActivity: 'Today',
       },
       {
         id: 'season-one',
-        title: 'Season One rollout schedule',
+        title: 'Season One release schedule',
         author: 'Off Season Team',
         replies: 28,
         lastActivity: 'Yesterday',
@@ -57,7 +57,7 @@ export const forumCategories: ForumCategory[] = [
   {
     id: 'episodes',
     title: 'Episodes',
-    description: 'Reactions, questions, and behind-the-scenes talk by episode.',
+    description: 'Episode-by-episode discussion, notes, and context.',
     threads: [
       {
         id: 's1e1-njoku',
@@ -78,7 +78,7 @@ export const forumCategories: ForumCategory[] = [
   {
     id: 'merch',
     title: 'Merch & Drops',
-    description: 'Sizing, restocks, shipping, and new drops.',
+    description: 'Sizing, restocks, shipping, and new releases.',
     threads: [
       {
         id: 'hoodie-sizing',
@@ -89,7 +89,7 @@ export const forumCategories: ForumCategory[] = [
       },
       {
         id: 'next-drop',
-        title: 'Next drop wishlist',
+        title: 'Next release wishlist',
         author: 'The Locker Room',
         replies: 33,
         lastActivity: '1w ago',
@@ -103,23 +103,23 @@ export const forumTimelinePosts: ForumPost[] = [
     id: 'p-welcome',
     categoryId: 'announcements',
     categoryTitle: 'Announcements',
-    title: 'Welcome to the community — what do you want from Forums?',
+    title: 'Welcome — what do you want from the forums?',
     author: 'Off Season Team',
     timestampIso: new Date(Date.now() - 45 * 60_000).toISOString(),
     thumbnailLabel: 'Update',
     excerpt:
-      'We’re starting simple: episode talk, drops, training notes, and real-time reactions. Tell us what would make this feel like your locker room.',
+      'We’re starting simple: episode talk, drops, training notes, and clean threads by season. Tell us what you want this space to become.',
     topComments: [
       {
         id: 'c1',
         author: 'Mack',
-        body: 'Pinned episode threads + a place for clips would be perfect.',
+        body: 'Pinned episode threads + a dedicated place for clips would be perfect.',
         timestampIso: new Date(Date.now() - 31 * 60_000).toISOString(),
       },
       {
         id: 'c2',
         author: 'Rico',
-        body: 'Let us tag players/teams and keep it organized by season.',
+        body: 'Tags for players/teams — and keep it organized by season.',
         timestampIso: new Date(Date.now() - 24 * 60_000).toISOString(),
       },
     ],
@@ -133,18 +133,18 @@ export const forumTimelinePosts: ForumPost[] = [
     timestampIso: new Date(Date.now() - 3 * 60 * 60_000).toISOString(),
     thumbnailLabel: 'S1E1',
     excerpt:
-      'That moment on mindset hit different. Curious what everyone took away and what you’re applying this week.',
+      'That moment on mindset landed. What did you catch on the first watch — and on the second?',
     topComments: [
       {
         id: 'c1',
         author: 'Jules',
-        body: 'The part about routine > motivation. Needed that reminder.',
+        body: 'The routine vs. motivation distinction felt real — especially in the offseason stretch.',
         timestampIso: new Date(Date.now() - 2.6 * 60 * 60_000).toISOString(),
       },
       {
         id: 'c2',
         author: 'The Locker Room',
-        body: 'He made “consistency” sound like a skill you train, not a trait.',
+        body: 'He talked about consistency like a trained behavior, not a personality trait.',
         timestampIso: new Date(Date.now() - 2.2 * 60 * 60_000).toISOString(),
       },
     ],
@@ -158,18 +158,18 @@ export const forumTimelinePosts: ForumPost[] = [
     timestampIso: new Date(Date.now() - 22 * 60 * 60_000).toISOString(),
     thumbnailLabel: 'S1E4',
     excerpt:
-      'What’s one drill, cue, or mental framework you wrote down immediately? Drop it here so we can build a shared notebook.',
+      'What’s one drill, cue, or small detail you wrote down immediately? Drop it here and keep the notes tight.',
     topComments: [
       {
         id: 'c1',
         author: 'Mack',
-        body: 'Footwork detail was insane — small steps, fast eyes.',
+        body: 'Footwork detail was surgical — small steps, fast eyes.',
         timestampIso: new Date(Date.now() - 21.5 * 60 * 60_000).toISOString(),
       },
       {
         id: 'c2',
         author: 'Rico',
-        body: 'The “win the first rep” mentality applies outside training too.',
+        body: 'The “first rep” emphasis says a lot about how he starts a day, not just a drill.',
         timestampIso: new Date(Date.now() - 20.9 * 60 * 60_000).toISOString(),
       },
     ],
@@ -183,18 +183,18 @@ export const forumTimelinePosts: ForumPost[] = [
     timestampIso: new Date(Date.now() - 4 * 24 * 60 * 60_000).toISOString(),
     thumbnailLabel: 'Merch',
     excerpt:
-      'If you grabbed the last drop, how’s the fit? Include height/weight + size so everybody can dial it in.',
+      'If you grabbed the last release, how’s the fit? Include height/weight + size so the next order is easy.',
     topComments: [
       {
         id: 'c1',
         author: 'The Locker Room',
-        body: 'Medium fits athletic. If you like baggy, go up one.',
+        body: 'Medium fits athletic. If you want room, go up one.',
         timestampIso: new Date(Date.now() - 3.8 * 24 * 60 * 60_000).toISOString(),
       },
       {
         id: 'c2',
         author: 'Jules',
-        body: 'Sleeves run a touch long (in a good way).',
+        body: 'Sleeves run a touch long — in a good way.',
         timestampIso: new Date(Date.now() - 3.7 * 24 * 60 * 60_000).toISOString(),
       },
     ],

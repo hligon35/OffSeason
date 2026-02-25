@@ -18,8 +18,8 @@ export default function SignInPage() {
       <div className="overflow-hidden rounded border border-brand-gray-200 bg-brand-white">
         <div className="border-b border-brand-gray-200 bg-brand-black px-5 py-5 text-brand-white">
           <div className="text-xs font-[800] uppercase tracking-wide text-brand-white/80">Account</div>
-          <h1 className="mt-1 text-2xl font-[800] tracking-tightish">Sign in to Off Season</h1>
-          <p className="mt-2 text-sm text-brand-white/75">Use Google, Apple, or email to access your library.</p>
+          <h1 className="mt-1 text-2xl font-[800] tracking-tightish">Sign in</h1>
+          <p className="mt-2 text-sm text-brand-white/75">Use Google, Apple, or email to open your library.</p>
         </div>
 
         <div className="space-y-4 p-5 sm:p-6">
@@ -31,10 +31,10 @@ export default function SignInPage() {
 
           <div className="flex flex-wrap items-center justify-between gap-2 text-sm">
             <Link href="/" className="text-brand-gray-700 hover:text-brand-red">
-              Back to Home
+              Back to home
             </Link>
             <Link href="/account" className="text-brand-gray-700 hover:text-brand-red">
-              Go to Account
+              Go to account
             </Link>
           </div>
         </div>

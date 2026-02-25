@@ -30,10 +30,9 @@ export function VimeoOttSeasonPlayer({
           />
         ) : (
           <div className="absolute inset-0 flex h-full w-full flex-col items-center justify-center gap-2 px-6 text-center">
-            <div className="text-sm font-[800] text-brand-white">Vimeo OTT embed not configured</div>
+            <div className="text-sm font-[800] text-brand-white">Player unavailable</div>
             <div className="text-xs text-brand-gray-300">
-              Set <span className="font-[800]">NEXT_PUBLIC_VIMEO_OTT_SEASON1_EMBED_URL</span> to your Season One embed
-              URL.
+              This video isn’t available right now.
             </div>
           </div>
         )}

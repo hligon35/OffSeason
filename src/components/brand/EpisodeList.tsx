@@ -24,7 +24,7 @@ export function EpisodeList({
       <div className="flex items-end justify-between gap-4">
         <h2 className="text-lg font-[800] tracking-tightish">{title}</h2>
         <Link href={viewAllHref} className="text-xs font-[800] uppercase tracking-wide text-brand-gray-700 hover:text-brand-red">
-          View all
+          See all
         </Link>
       </div>
 
@@ -39,7 +39,7 @@ export function EpisodeList({
             {'duration' in ep ? (
               <div className="mt-1 text-xs text-brand-gray-600">Runtime · {ep.duration}</div>
             ) : (
-              <div className="mt-1 text-xs text-brand-gray-600">Featured episode</div>
+              <div className="mt-1 text-xs text-brand-gray-600">Featured</div>
             )}
           </Link>
         ))}

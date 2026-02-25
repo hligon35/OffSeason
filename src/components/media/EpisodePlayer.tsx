@@ -37,14 +37,14 @@ export function EpisodePlayer(props: {
 
   return (
     <div className="rounded border border-brand-gray-200 bg-brand-white p-4">
-      <div className="text-xs font-[800] uppercase tracking-wide text-brand-gray-600">Player</div>
+      <div className="text-xs font-[800] uppercase tracking-wide text-brand-gray-600">Playback</div>
 
       <button
         type="button"
         onClick={() => load()}
         className="mt-3 rounded bg-brand-red px-3 py-2 text-xs font-[800] uppercase tracking-wide text-brand-white"
       >
-        {loading ? 'Loading…' : 'Get signed playback URL'}
+        {loading ? 'Loading…' : 'Load playback'}
       </button>
 
       {error ? <div className="mt-3 text-sm text-brand-red">{error}</div> : null}

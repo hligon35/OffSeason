@@ -12,18 +12,18 @@ export function BrandHero() {
 
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <CTAButton href="/the-show" variant="primary">
-              Explore the show
+              Watch the show
             </CTAButton>
             <CTAButton href="/podcast" variant="outline" className="border-brand-white/20 bg-transparent text-brand-white hover:bg-brand-white hover:text-brand-black">
-              Explore the podcast
+              Podcast
             </CTAButton>
           </div>
 
           <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
             {[
-              { k: 'Episodes', v: 'Full show feed' },
-              { k: 'Clips', v: 'Short-form video' },
-              { k: 'Topics', v: 'Verticals + moments' },
+              { k: 'Episodes', v: 'Full episodes' },
+              { k: 'Clips', v: 'Clips and cuts' },
+              { k: 'Topics', v: 'Verticals and moments' },
             ].map((s) => (
               <div key={s.k} className="rounded border border-brand-white/10 bg-brand-white/5 p-4">
                 <div className="text-xs font-[800] uppercase tracking-wide text-brand-white/80">{s.k}</div>

@@ -27,7 +27,7 @@ export default function ForumsPage() {
         <div className="text-xs font-[800] uppercase tracking-wide text-brand-gray-600">Community</div>
         <h1 className="mt-1 text-3xl font-[800] tracking-tightish sm:text-4xl">Forums</h1>
         <p className="mt-3 max-w-2xl text-sm text-brand-gray-700 sm:text-base">
-          Where the takes live—react to episodes, debate the moments, and catch the latest drops.
+          Where the tape gets discussed — react to episodes, debate the moments, and track the drops.
         </p>
       </section>
 

@@ -29,8 +29,8 @@ export default function MediaIndexPage() {
       <div className="mx-auto w-full max-w-4xl space-y-4">
         <div className="rounded border border-brand-gray-200 bg-brand-white p-5">
           <div className="text-xs font-[800] uppercase tracking-wide text-brand-gray-600">Media</div>
-          <h1 className="mt-1 text-2xl font-[800] tracking-tightish">Browse seasons</h1>
-          <p className="mt-2 text-sm text-brand-gray-700">Seasons and episodes live here.</p>
+          <h1 className="mt-1 text-2xl font-[800] tracking-tightish">Season library</h1>
+          <p className="mt-2 text-sm text-brand-gray-700">Full episodes, in order.</p>
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">

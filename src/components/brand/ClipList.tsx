@@ -23,7 +23,7 @@ export function ClipList({
       <div className="flex items-end justify-between gap-4">
         <h2 className="text-lg font-[800] tracking-tightish">{title}</h2>
         <Link href={viewAllHref} className="text-xs font-[800] uppercase tracking-wide text-brand-gray-700 hover:text-brand-red">
-          View all
+          See all
         </Link>
       </div>
 

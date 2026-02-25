@@ -22,18 +22,18 @@ export function EmailPasswordAuth() {
 
     try {
       const e = email.trim()
-      if (!e) throw new Error('Enter your email')
-      if (!password.trim()) throw new Error('Enter your password')
+      if (!e) throw new Error('Enter an email address')
+      if (!password.trim()) throw new Error('Enter a password')
 
       if (mode === 'create') {
         await createAccountWithEmailPassword(e, password)
-        setMessage('Account created. You are now signed in.')
+        setMessage('Account created. You’re signed in.')
       } else {
         await signInWithEmailPassword(e, password)
         setMessage('Signed in.')
       }
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Something went wrong')
+      setError(err instanceof Error ? err.message : 'Something went wrong.')
     } finally {
       setSubmitting(false)
     }
@@ -46,11 +46,11 @@ export function EmailPasswordAuth() {
 
     try {
       const e = email.trim()
-      if (!e) throw new Error('Enter your email first')
+      if (!e) throw new Error('Enter your email first.')
       await sendPasswordReset(e)
-      setMessage('Password reset email sent (if the account exists).')
+      setMessage('Password reset sent (if the account exists).')
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Something went wrong')
+      setError(err instanceof Error ? err.message : 'Something went wrong.')
     } finally {
       setSubmitting(false)
     }
@@ -59,7 +59,7 @@ export function EmailPasswordAuth() {
   return (
     <div className="rounded border border-brand-gray-200 bg-brand-white p-4">
       <div className="text-xs font-[800] uppercase tracking-wide text-brand-gray-600">
-        {mode === 'create' ? 'Create account' : 'Email sign-in'}
+        {mode === 'create' ? 'Create account' : 'Email'}
       </div>
 
       <div className="mt-3 space-y-3">
@@ -69,7 +69,7 @@ export function EmailPasswordAuth() {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="you@off-season.io"
+            placeholder="you@example.com"
             className="mt-2 w-full rounded border border-brand-gray-200 bg-brand-white px-3 py-2 text-sm outline-none placeholder:text-brand-gray-500 focus:border-brand-red"
           />
         </div>
@@ -117,14 +117,14 @@ export function EmailPasswordAuth() {
         <div className="flex flex-wrap items-center justify-between gap-2 text-sm">
           {mode === 'create' ? (
             <button type="button" onClick={() => setMode('sign-in')} className="text-brand-gray-700 hover:text-brand-red">
-              Already have an account? Sign in
+              Already have an account? Sign in.
             </button>
           ) : (
             <button type="button" onClick={() => setMode('create')} className="text-brand-gray-700 hover:text-brand-red">
-              No account yet? Create one
+              New here? Create an account.
             </button>
           )}
-          <div className="text-xs text-brand-gray-600">Requires Firebase Email/Password enabled.</div>
+          <div className="text-xs text-brand-gray-600">Prefer Google or Apple? Use the buttons below.</div>
         </div>
       </div>
     </div>

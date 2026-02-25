@@ -4,7 +4,7 @@ export const footerColumns: Array<{ title: string; links: Array<{ label: string;
     links: [
       { label: 'Home', href: '/' },
       { label: 'The Show', href: '/the-show' },
-      { label: 'The Podcast', href: '/podcast' },
+      { label: 'Podcast', href: '/podcast' },
       { label: 'Forums', href: '/forums' },
       { label: 'Merch', href: '/merch' },
     ],

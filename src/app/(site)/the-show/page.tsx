@@ -31,7 +31,7 @@ export default function TheShowPage() {
   const directors = [
     {
       name: 'Tevin Tavares',
-      bio: 'Directs Season One — shaping the story, pacing, and tone behind the camera.',
+      bio: 'Season One director — shapes story, pace, and tone from behind the camera.',
       avatarSrc: '/tevin.jpg',
     },
   ] as const
@@ -39,27 +39,27 @@ export default function TheShowPage() {
   const cast = [
     {
       name: 'David Njoku',
-      bio: 'Featured in Season One — Episode 1.',
+      bio: 'Season One — Episode 1.',
       avatarSrc: '/david.jpg',
     },
     {
       name: 'Penei Sewell',
-      bio: 'Featured in Season One — Episode 2.',
+      bio: 'Season One — Episode 2.',
       avatarSrc: '/penei.jpg',
     },
     {
       name: 'Trey Hendrickson',
-      bio: 'Featured in Season One — Episode 3.',
+      bio: 'Season One — Episode 3.',
       avatarSrc: '/trey.jpg',
     },
     {
       name: 'George Kittle',
-      bio: 'Featured in Season One — Episode 4.',
+      bio: 'Season One — Episode 4.',
       avatarSrc: '/george.jpg',
     },
     {
       name: 'Ricky Pearsall',
-      bio: 'Featured in Season One — Episode 5.',
+      bio: 'Season One — Episode 5.',
       avatarSrc: '/ricky.jpg',
     },
   ] as const
@@ -71,14 +71,14 @@ export default function TheShowPage() {
       <section className="rounded border border-brand-gray-200 bg-brand-white p-5 sm:p-6">
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr,420px]">
           <div>
-            <div className="text-xs font-[800] uppercase tracking-wide text-brand-gray-600">Show description</div>
-            <h2 className="mt-1 text-2xl font-[800] tracking-tightish">What Off Season is</h2>
+            <div className="text-xs font-[800] uppercase tracking-wide text-brand-gray-600">Series brief</div>
+            <h2 className="mt-1 text-2xl font-[800] tracking-tightish">The premise</h2>
             <p className="mt-3 text-sm text-brand-gray-700 sm:text-base">
-              Rare, unfiltered access to the NFL&apos;s elite during the most consequential stretch of the year-where brutal training, family commitments, and high-stakes business decisions quietly shape careers when the spotlight is gone.
+              A cinematic, ground-level look at the NFL offseason — training blocks, family routines, and the business behind the badge. Episodes drop weekly; the season closes as a premium film. The Standard stays consistent: Body, Mind, Ownership.
             </p>
 
             <div className="mt-5 flex flex-wrap items-center gap-3">
-              <CTAButton href="#episodes" variant="primary">Watch full episodes</CTAButton>
+              <CTAButton href="#episodes" variant="primary">Watch episodes</CTAButton>
               <CTAButton href="#clips" variant="outline">Watch clips</CTAButton>
             </div>
           </div>
@@ -107,7 +107,7 @@ export default function TheShowPage() {
       <section className="space-y-4" id="cast">
         <div className="rounded border border-brand-gray-200 bg-brand-white p-5 sm:p-6">
           <div className="text-xs font-[800] uppercase tracking-wide text-brand-gray-600">Cast</div>
-          <h2 className="mt-1 text-2xl font-[800] tracking-tightish">Who you’ll follow in Season One</h2>
+          <h2 className="mt-1 text-2xl font-[800] tracking-tightish">Who we follow in Season One</h2>
 
           <div className="mt-5">
             <div className="text-xs font-[800] uppercase tracking-wide text-brand-gray-600">Directors</div>
@@ -132,17 +132,17 @@ export default function TheShowPage() {
       <VideoStoreEpisodesSection data={storeData} seasonProductId="media_season1" />
 
       <section id="clips">
-        <ClipList title="Behind-the-scenes" items={behindTheScenesClips} viewAllHref="#clips" />
+        <ClipList title="Behind the scenes" items={behindTheScenesClips} viewAllHref="#clips" />
       </section>
 
       <section className="rounded border border-brand-gray-200 bg-brand-black p-6 text-brand-white">
-        <div className="text-xs font-[800] uppercase tracking-wide text-brand-white/80">Ready to watch?</div>
-        <h2 className="mt-1 text-2xl font-[800] tracking-tightish">Catch the full episodes</h2>
+        <div className="text-xs font-[800] uppercase tracking-wide text-brand-white/80">Start here</div>
+        <h2 className="mt-1 text-2xl font-[800] tracking-tightish">Watch the full episodes</h2>
         <p className="mt-2 max-w-2xl text-sm text-brand-white/75">
-          The main feed lives in Episodes — clips are great, but the full context is where the best arguments happen.
+          Episodes carry the full arc — clips are the margin notes.
         </p>
         <div className="mt-4">
-          <CTAButton href="#episodes" variant="primary">Go to Episodes</CTAButton>
+          <CTAButton href="#episodes" variant="primary">Go to episodes</CTAButton>
         </div>
       </section>
     </div>
